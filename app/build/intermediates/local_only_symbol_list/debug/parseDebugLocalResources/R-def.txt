@@ -1,0 +1,27 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color purple_200
+color purple_500
+color purple_700
+color teal_200
+color teal_700
+color white
+drawable a_haunting_in_venice
+drawable chair
+drawable devils_advocate
+drawable ic_apps
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable snapedit_png
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+string auth_mail_description_ru
+string auth_mail_ru
+string auth_password_description_ru
+string auth_password_ru
+string auth_ru
+style Theme.Absolute_cinema_app
+xml backup_rules
+xml data_extraction_rules

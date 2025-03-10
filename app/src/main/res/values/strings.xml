@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">absolute_cinema_app</string>
+    <string name="auth_mail_ru">Адресс электронной почты</string>
+    <string name="auth_mail_description_ru">Введите адрес электронной почты</string>
+    <string name="auth_password_ru">Пароль</string>
+    <string name="auth_password_description_ru"> Введите пароль</string>
+    <string name="auth_ru">Войти</string>
+</resources>
