@@ -37,19 +37,30 @@ fun ScreenMain() {
     val configuration = LocalConfiguration.current
     val screenWidth = configuration.screenWidthDp.dp
     val scrollState = rememberScrollState()
-    val imageAlpha = 1f - (scrollState.value / 200f).coerceIn(0f, 1f)
+    val imageAlpha = 1f - (scrollState.value / 500f).coerceIn(0f, 1f)
     val backgroundColor = MaterialTheme.colorScheme.background
-    Box(modifier = Modifier.fillMaxSize()) {
-        LazyRow(modifier = Modifier
-            .height(300.dp)
-            .zIndex(1f)) {
+
+    Column(
+        modifier = Modifier
+            .verticalScroll(scrollState)
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
+    ) {
+        LazyRow(
+            modifier = Modifier
+                .height(300.dp)
+                .zIndex(1f)
+        ) {
             itemsIndexed(
                 ConstansOfFilms.FilmItems
-            ){_,item->
-                Box (modifier = Modifier
-                    .width(screenWidth)
-                    .height(300.dp)){
-                    Text(text = item.label,
+            ) { _, item ->
+                Box(
+                    modifier = Modifier
+                        .width(screenWidth)
+                        .height(300.dp)
+                ) {
+                    Text(
+                        text = item.label,
                         color = Color(0xFFFFEB3B),
                         modifier = Modifier
                             .zIndex(3f)
@@ -58,7 +69,8 @@ fun ScreenMain() {
                             .graphicsLayer { alpha = imageAlpha },
                         textAlign = TextAlign.Center,
                         fontWeight = FontWeight.Bold,
-                        fontSize = 25.sp)
+                        fontSize = 25.sp
+                    )
                     Image(
                         painter = painterResource(id = item.icon),
                         contentDescription = "Background Image",
@@ -71,7 +83,7 @@ fun ScreenMain() {
                     )
                     Canvas(modifier = Modifier.fillMaxWidth()//градиент
                         .height(300.dp).zIndex(2f)
-                        .graphicsLayer { alpha = imageAlpha }) {
+                        ) {
 
                         val gradientBrush = Brush.verticalGradient(
                             colors = listOf(backgroundColor, Color.Transparent),
@@ -87,25 +99,11 @@ fun ScreenMain() {
                 }
             }
         }
-
-
-        Column(modifier = Modifier
-            .verticalScroll(scrollState)
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
-            .padding(top = 300.dp)
-            .zIndex(0f)
-        ) {
-
+        repeat(20) {
             Text(
-                text = "Content here...",
-                color = MaterialTheme.colorScheme.onBackground,
-                modifier = Modifier.padding(16.dp)
+                "Item $it", modifier = Modifier.padding(16.dp),
+                color = MaterialTheme.colorScheme.onBackground
             )
-            repeat(20) {
-                Text("Item $it", modifier = Modifier.padding(16.dp),
-                    color = MaterialTheme.colorScheme.onBackground)
-            }
         }
     }
 }
@@ -116,5 +114,3 @@ fun ScreenCategories() {}
 @Composable
 fun ScreenFavorites() {}
 
-@Composable
-fun ScreenSettings() {}
