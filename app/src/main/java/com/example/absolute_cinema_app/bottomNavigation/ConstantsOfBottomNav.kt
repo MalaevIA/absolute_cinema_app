@@ -12,24 +12,24 @@ object ConstantsOfBottomNav {
         BottomNavItem(
             label = "Главная",
             icon = Icons.Filled.Home,
-            route = "home"
+            route = "ScreenMain"
         ),
         // Search screen
         BottomNavItem(
             label = "Категория",
             icon = Icons.Filled.Menu,
-            route = "search"
+            route = "ScreenCategories"
         ),
         // Profile screen
         BottomNavItem(
             label = "Закладки",
             icon = Icons.Filled.Favorite,
-            route = "profile"
+            route = "ScreenFavorites"
         ),
         BottomNavItem(
             label = "Насторойки",
             icon = Icons.Filled.Settings,
-            route = "profile"
+            route = "ScreenSettings"
         )
     )
 }

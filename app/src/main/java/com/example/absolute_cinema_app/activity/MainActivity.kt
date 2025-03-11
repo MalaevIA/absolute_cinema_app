@@ -7,9 +7,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.absolute_cinema_app.screens.ScreenCategories
+import com.example.absolute_cinema_app.screens.ScreenFavorites
 import com.example.absolute_cinema_app.screens.ScreenMailAuth
 import com.example.absolute_cinema_app.screens.ScreenMain
 import com.example.absolute_cinema_app.screens.ScreenPasswordAuth
+import com.example.absolute_cinema_app.screens.ScreenSettings
 import com.example.absolute_cinema_app.ui.theme.Absolute_cinema_appTheme
 
 
@@ -37,7 +40,24 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                     composable("ScreenMain"){
-                        ScreenMain()
+                        ScreenMain(
+                            navController = navController
+                        )
+                    }
+                    composable("ScreenCategories"){
+                        ScreenCategories(
+                            navController = navController
+                        )
+                    }
+                    composable("ScreenFavorites"){
+                        ScreenFavorites(
+                            navController = navController
+                        )
+                    }
+                    composable("ScreenSettings"){
+                        ScreenSettings(
+                            navController = navController
+                        )
                     }
                 }
             }
