@@ -78,6 +78,7 @@ int dimen notification_top_pad_large_text 0x7f030015
 int drawable a_haunting_in_venice 0x7f04001a
 int drawable chair 0x7f040001
 int drawable devils_advocate 0x7f04001b
+int drawable green_mile 0x7f04001d
 int drawable ic_apps 0x7f040018
 int drawable ic_call_answer 0x7f040002
 int drawable ic_call_answer_low 0x7f040003
@@ -85,8 +86,10 @@ int drawable ic_call_answer_video 0x7f040004
 int drawable ic_call_answer_video_low 0x7f040005
 int drawable ic_call_decline 0x7f040006
 int drawable ic_call_decline_low 0x7f040007
+int drawable ic_eye 0x7f04001c
 int drawable ic_launcher_background 0x7f040008
 int drawable ic_launcher_foreground 0x7f040009
+int drawable magic_battle 0x7f04001e
 int drawable notification_action_background 0x7f04000a
 int drawable notification_bg 0x7f04000b
 int drawable notification_bg_low 0x7f04000c
@@ -100,6 +103,7 @@ int drawable notification_template_icon_bg 0x7f040013
 int drawable notification_template_icon_low_bg 0x7f040014
 int drawable notification_tile_bg 0x7f040015
 int drawable notify_panel_notification_icon_bg 0x7f040016
+int drawable showshank 0x7f04001f
 int drawable snapedit_png 0x7f040017
 int id accessibility_action_clickable_span 0x7f050000
 int id accessibility_custom_action_0 0x7f050001

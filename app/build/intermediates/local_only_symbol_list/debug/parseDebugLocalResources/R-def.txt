@@ -10,9 +10,13 @@ color white
 drawable a_haunting_in_venice
 drawable chair
 drawable devils_advocate
+drawable green_mile
 drawable ic_apps
+drawable ic_eye
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable magic_battle
+drawable showshank
 drawable snapedit_png
 mipmap ic_launcher
 mipmap ic_launcher_round
