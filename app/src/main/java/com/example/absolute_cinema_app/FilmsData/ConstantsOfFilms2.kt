@@ -6,6 +6,6 @@ object ConstantsOfFilms2 {
     val FilmItems = listOf(
         FilmItem("Зеленая миля", R.drawable.green_mile,"Драма",0),
         FilmItem("Побег из Шоушенка", R.drawable.showshank,"Драма",0),
-        FilmItem("Магическая битва",R.drawable.magic_battle,"сёнен",0)
+        FilmItem("Магическая битва",R.drawable.magic_battle,"Сёнен",0)
     )
 }
