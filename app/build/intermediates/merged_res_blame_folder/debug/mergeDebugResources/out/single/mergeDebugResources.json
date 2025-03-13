@@ -4,12 +4,8 @@
         "source": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-main-55:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_showshank.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/showshank.png"
-    },
-    {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_green_mile.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/green_mile.png"
+        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_superman.png.flat",
+        "source": "com.example.absolute_cinema_app-main-55:/drawable/superman.png"
     },
     {
         "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/drawable_ic_apps.xml.flat",
@@ -28,20 +24,24 @@
         "source": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-main-55:/drawable/ic_eye.xml"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_magic_battle.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/magic_battle.png"
+        "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/drawable_showshank.png.flat",
+        "source": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-main-55:/drawable/showshank.png"
     },
     {
         "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/mipmap-hdpi_ic_launcher_round.webp.flat",
         "source": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-main-55:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-main-55:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/drawable_magic_battle.png.flat",
+        "source": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-main-55:/drawable/magic_battle.png"
     },
     {
         "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/xml_data_extraction_rules.xml.flat",
         "source": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-main-55:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-main-55:/mipmap-hdpi/ic_launcher.webp"
     },
     {
         "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/mipmap-anydpi_ic_launcher_round.xml.flat",
@@ -50,6 +50,10 @@
     {
         "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/drawable_ic_launcher_background.xml.flat",
         "source": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-main-55:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/drawable_green_mile.png.flat",
+        "source": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-main-55:/drawable/green_mile.png"
     },
     {
         "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/mipmap-mdpi_ic_launcher_round.webp.flat",
@@ -82,6 +86,10 @@
     {
         "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/drawable_ic_launcher_foreground.xml.flat",
         "source": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-main-55:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_alladin2.png.flat",
+        "source": "com.example.absolute_cinema_app-main-55:/drawable/alladin2.png"
     },
     {
         "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/mipmap-xhdpi_ic_launcher_round.webp.flat",

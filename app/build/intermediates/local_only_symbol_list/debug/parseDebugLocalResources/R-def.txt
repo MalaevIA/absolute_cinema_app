@@ -8,6 +8,7 @@ color teal_200
 color teal_700
 color white
 drawable a_haunting_in_venice
+drawable alladin2
 drawable chair
 drawable devils_advocate
 drawable green_mile
@@ -18,6 +19,7 @@ drawable ic_launcher_foreground
 drawable magic_battle
 drawable showshank
 drawable snapedit_png
+drawable superman
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name

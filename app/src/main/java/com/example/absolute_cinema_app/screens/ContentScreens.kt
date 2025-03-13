@@ -4,6 +4,7 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,6 +19,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
@@ -63,6 +65,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.absolute_cinema_app.FilmsData.ConstansOfFilms
 import com.example.absolute_cinema_app.FilmsData.ConstantsOfFilms2
+import com.example.absolute_cinema_app.FilmsData.ConstantsOfFilms3
 import com.example.absolute_cinema_app.R
 import com.example.absolute_cinema_app.bottomNavigation.ConstantsOfBottomNav
 
@@ -274,7 +277,7 @@ fun NewView(){
         }
         LazyRow (modifier = Modifier
             .height(300.dp)) {
-            itemsIndexed(ConstantsOfFilms2.FilmItems) { _, item ->
+            itemsIndexed(ConstantsOfFilms3.FilmItems) { _, item ->
                 Box(){
                     Image(
                         painter = painterResource(id = item.icon),
@@ -357,10 +360,15 @@ fun NeedToWatchView(){
 }
 @Composable
 fun PreviewCinema(screenWidth: Dp, imageAlpha: Float, backgroundColor: Color){
+    val listState = rememberLazyListState()
+    val flingBehavior = rememberSnapFlingBehavior(lazyListState = listState)
     LazyRow(
+        state = listState,
+        flingBehavior = flingBehavior,
         modifier = Modifier
             .height(300.dp)
             .zIndex(1f)
+
     ) {
         itemsIndexed(ConstansOfFilms.FilmItems) { _, item ->
             Box(
