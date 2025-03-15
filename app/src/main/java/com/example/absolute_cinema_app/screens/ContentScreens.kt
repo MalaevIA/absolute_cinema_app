@@ -28,6 +28,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -425,20 +426,6 @@ fun PreviewCinema(screenWidth: Dp, imageAlpha: Float, backgroundColor: Color){
         }
     }
 }
-@Composable
-fun ScreenSettings(navController: NavController) {
-    Scaffold(
-        bottomBar = { BottomNavigationBar(navController) }
-    ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-        ) {
-            Text("Настройки", modifier = Modifier.padding(16.dp))
-        }
-    }
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -811,8 +798,42 @@ fun SixthCategoryRow(backgroundColor: Color) {
 
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenFavorites(navController: NavController) {
+    val configuration: Configuration = LocalConfiguration.current
+    val screenWidth: Dp = configuration.screenWidthDp.dp
+    val backgroundColor: Color = MaterialTheme.colorScheme.background
+    Scaffold(
+        bottomBar = { BottomNavigationBar(navController) },
+        topBar = { TopAppBar(
+            title = { Text(text = "Закладки", fontWeight = FontWeight.Bold) },
+            actions = {
+                IconButton(onClick = { /* Действие при нажатии */ }) {
+                    Icon(
+                        imageVector = Icons.Default.List, // Заменить на свой ресурс
+                        contentDescription = "фильтры"
+                    )
+                }
+            }
+        ) }
+    ) { paddingValues ->
+        Box(contentAlignment = Alignment.Center,
+            modifier = Modifier.fillMaxSize()){
+            Column (modifier = Modifier.padding(bottom = 100.dp) ){
+                Image(
+                    painter = painterResource(R.drawable.snapedit_png),
+                    contentDescription = "",
+                    modifier = Modifier.width(screenWidth/2)
+                        .height(screenWidth/2)
+                )
+                Text("Список закладок пока пуст")
+            }
+        }
+    }
+}
+@Composable
+fun ScreenSettings(navController: NavController) {
     Scaffold(
         bottomBar = { BottomNavigationBar(navController) }
     ) { paddingValues ->
@@ -821,8 +842,7 @@ fun ScreenFavorites(navController: NavController) {
                 .fillMaxSize()
                 .padding(paddingValues)
         ) {
-            Text("Избранное", modifier = Modifier.padding(16.dp))
+            Text("Настройки", modifier = Modifier.padding(16.dp))
         }
     }
 }
-
