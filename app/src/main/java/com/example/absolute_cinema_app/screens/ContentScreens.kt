@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -28,6 +29,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -39,6 +41,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -63,6 +66,8 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.absolute_cinema_app.FilmsData.CategoryData
+import com.example.absolute_cinema_app.FilmsData.ConstansOfCategory
 import com.example.absolute_cinema_app.FilmsData.ConstansOfFilms
 import com.example.absolute_cinema_app.FilmsData.ConstantsOfFilms2
 import com.example.absolute_cinema_app.FilmsData.ConstantsOfFilms3
@@ -128,11 +133,13 @@ fun ScreenMain(
                 .padding(bottom = paddingValues.calculateBottomPadding()) // Отступ под BottomNav
         ) {
             PreviewCinema(screenWidth, imageAlpha, backgroundColor)
-            SearchBar(
-                query = searchQuery,
-                onQueryChange = { searchQuery = it })
+
+            SearchBar(query = searchQuery, onQueryChange = { searchQuery = it })
+
             ContinueView()
+
             NewView()
+
             NeedToWatchView()
         }
     }
@@ -433,20 +440,376 @@ fun ScreenSettings(navController: NavController) {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenCategories(navController: NavController) {
+    val configuration: Configuration = LocalConfiguration.current
+    val screenWidth: Dp = configuration.screenWidthDp.dp
+    val backgroundColor: Color = MaterialTheme.colorScheme.background
     Scaffold(
-        bottomBar = { BottomNavigationBar(navController) }
+        bottomBar = { BottomNavigationBar(navController) },
+        topBar = { TopAppBar(title = { Text(text = "Категории", fontWeight = FontWeight.Bold) }) }
     ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
+                .verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Text("Категории", modifier = Modifier.padding(16.dp))
+            FirstCategoryRow(backgroundColor)
+
+            SecondCategoryRow(screenWidth, backgroundColor)
+
+            ThirdCategoryRow(backgroundColor)
+
+            FourthCategoryRow(screenWidth, backgroundColor)
+
+            FifthCategoryRow(screenWidth, backgroundColor)
+
+            SixthCategoryRow(backgroundColor)
         }
     }
 }
+
+
+@Composable
+fun FirstCategoryRow(backgroundColor: Color) {
+    Row(modifier = Modifier.height(200.dp)) {
+        Box(modifier = Modifier.padding(start = 8.dp).height(200.dp)) {
+            Image(
+                painter = painterResource(id = ConstansOfCategory.CategoryItems[0].icon),
+                contentDescription = "",
+                modifier = Modifier
+                    .width(150.dp)
+                    .fillMaxHeight()
+                    .clip(RoundedCornerShape(20.dp)),
+                contentScale = ContentScale.Crop
+            )
+            Canvas(modifier = Modifier.matchParentSize()) {
+                drawRect(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(backgroundColor, Color.Transparent),
+                        startY = size.height,
+                        endY = size.height - 150f
+                    ),
+                    size = size
+                )
+            }
+            Text(
+                text = ConstansOfCategory.CategoryItems[0].label,
+                color = Color.White,
+                modifier = Modifier
+                    .width(150.dp)
+                    .padding(top = 170.dp, start = 8.dp),
+                textAlign = TextAlign.Start,
+                fontSize = 15.sp
+            )
+        }
+        Box(modifier = Modifier.padding(start = 8.dp)) {
+            LazyColumn(userScrollEnabled = false) {
+                itemsIndexed(ConstansOfCategory.CategoryItems.slice(1..2)) {_, item ->
+                    Box(
+                        modifier = Modifier
+                            .padding(bottom = 8.dp, end = 8.dp)
+                            .width(300.dp)
+                            .height(96.dp)
+                            .clip(RoundedCornerShape(20.dp))
+                    ) {
+                        Image(
+                            painter = painterResource(id = item.icon),
+                            contentDescription = "",
+                            modifier = Modifier.matchParentSize(),
+                            contentScale = ContentScale.Crop
+                        )
+                        Canvas(modifier = Modifier.matchParentSize()) {
+                            drawRect(
+                                brush = Brush.verticalGradient(
+                                    colors = listOf(backgroundColor, Color.Transparent),
+                                    startY = size.height,
+                                    endY = size.height - 150f
+                                ),
+                                size = size
+                            )
+                        }
+                        Text(
+                            text = item.label,
+                            color = Color.White,
+                            modifier = Modifier
+                                .width(300.dp)
+                                .padding(top = 66.dp, start = 8.dp),
+                            textAlign = TextAlign.Start,
+                            fontSize = 15.sp
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun SecondCategoryRow(screenWidth: Dp, backgroundColor: Color) {
+    LazyRow(
+        modifier = Modifier
+            .padding(start = 8.dp)
+            .fillMaxWidth()
+            .height(screenWidth / 2 - 18.dp),
+        userScrollEnabled = false
+    ) {
+        itemsIndexed(ConstansOfCategory.CategoryItems.slice(3..4)) { _, item ->
+            Box(
+                modifier = Modifier
+                    .padding(end = 8.dp)
+                    .width(screenWidth / 2 - 12.dp)
+                    .fillMaxHeight()
+                    .clip(RoundedCornerShape(20.dp))
+            ) {
+                Image(
+                    painter = painterResource(id = item.icon),
+                    contentDescription = "",
+                    modifier = Modifier.matchParentSize(),
+                    contentScale = ContentScale.Crop
+                )
+                Canvas(modifier = Modifier.matchParentSize()) {
+                    drawRect(
+                        brush = Brush.verticalGradient(
+                            colors = listOf(backgroundColor, Color.Transparent),
+                            startY = size.height,
+                            endY = size.height - 150f
+                        ),
+                        size = size
+                    )
+                }
+                Text(
+                    text = item.label,
+                    color = Color.White,
+                    modifier = Modifier
+                        .width(300.dp)
+                        .padding(top = screenWidth / 2 - 48.dp, start = 8.dp),
+                    textAlign = TextAlign.Start,
+                    fontSize = 15.sp
+                )
+            }
+        }
+    }
+}
+
+
+@Composable
+fun ThirdCategoryRow(backgroundColor: Color) {
+    Row(
+        modifier = Modifier.height(200.dp)
+    ) {
+        Box(modifier = Modifier.padding(start = 8.dp, end = 8.dp)) {
+            LazyColumn(userScrollEnabled = false) {
+                itemsIndexed(ConstansOfCategory.CategoryItems.slice(5..6)) {_, item ->
+                    Box(
+                        modifier = Modifier
+                            .padding(bottom = 8.dp)
+                            .width(250.dp)
+                            .height(96.dp)
+                            .clip(RoundedCornerShape(20.dp))
+                    ) {
+                        Image(
+                            painter = painterResource(id = item.icon),
+                            contentDescription = "",
+                            modifier = Modifier.matchParentSize(),
+                            contentScale = ContentScale.Crop
+                        )
+                        Canvas(modifier = Modifier.matchParentSize()) {
+                            drawRect(
+                                brush = Brush.verticalGradient(
+                                    colors = listOf(backgroundColor, Color.Transparent),
+                                    startY = size.height,
+                                    endY = size.height - 150f
+                                ),
+                                size = size
+                            )
+                        }
+                        Text(
+                            text = item.label,
+                            color = Color.White,
+                            modifier = Modifier
+                                .width(300.dp)
+                                .padding(top = 66.dp, start = 8.dp),
+                            textAlign = TextAlign.Start,
+                            fontSize = 15.sp
+                        )
+                    }
+                }
+            }
+        }
+
+        Box(
+            modifier = Modifier
+                .padding(end = 8.dp)
+                .height(200.dp)
+                .width(150.dp)
+                .clip(RoundedCornerShape(20.dp))
+        ) {
+            Image(
+                painter = painterResource(id = ConstansOfCategory.CategoryItems[7].icon),
+                contentDescription = "",
+                modifier = Modifier.matchParentSize(),
+                contentScale = ContentScale.Crop
+            )
+            Canvas(modifier = Modifier.matchParentSize()) {
+                drawRect(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(backgroundColor, Color.Transparent),
+                        startY = size.height,
+                        endY = size.height - 150f
+                    ),
+                    size = size
+                )
+            }
+            Text(
+                text = ConstansOfCategory.CategoryItems[7].label,
+                color = Color.White,
+                modifier = Modifier
+                    .width(150.dp)
+                    .padding(top = 170.dp, start = 8.dp),
+                textAlign = TextAlign.Start,
+                fontSize = 15.sp
+            )
+        }
+    }
+}
+
+@Composable
+fun FourthCategoryRow(screenWidth: Dp, backgroundColor: Color) {
+    LazyRow(
+        modifier = Modifier
+            .padding(start = 8.dp)
+            .fillMaxWidth()
+            .height(screenWidth / 2 - 18.dp),
+        userScrollEnabled = false
+    ) {
+        itemsIndexed(ConstansOfCategory.CategoryItems.slice(8..9)) {_, item ->
+            Box(
+                modifier = Modifier
+                    .padding(end = 8.dp)
+                    .width(screenWidth / 2 - 12.dp)
+                    .fillMaxHeight()
+                    .clip(RoundedCornerShape(20.dp))
+            ) {
+                Image(
+                    painter = painterResource(id = item.icon),
+                    contentDescription = "",
+                    modifier = Modifier.matchParentSize(),
+                    contentScale = ContentScale.Crop
+                )
+                Canvas(modifier = Modifier.matchParentSize()) {
+                    drawRect(
+                        brush = Brush.verticalGradient(
+                            colors = listOf(backgroundColor, Color.Transparent),
+                            startY = size.height,
+                            endY = size.height - 150f
+                        ),
+                        size = size
+                    )
+                }
+                Text(
+                    text = item.label,
+                    color = Color.White,
+                    modifier = Modifier
+                        .width(300.dp)
+                        .padding(top = screenWidth / 2 - 48.dp, start = 8.dp),
+                    textAlign = TextAlign.Start,
+                    fontSize = 15.sp
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun FifthCategoryRow(screenWidth: Dp, backgroundColor: Color) {
+    LazyRow(
+        modifier = Modifier
+            .padding(start = 8.dp)
+            .fillMaxWidth()
+            .height(screenWidth / 3 - 16.dp),
+        userScrollEnabled = false
+    ) {
+        itemsIndexed(ConstansOfCategory.CategoryItems.slice(10..12)) {_, item ->
+            Box(
+                modifier = Modifier
+                    .padding(end = 8.dp)
+                    .width(screenWidth / 3 - 10.dp)
+                    .fillMaxHeight()
+                    .clip(RoundedCornerShape(20.dp))
+            ) {
+                Image(
+                    painter = painterResource(id = item.icon),
+                    contentDescription = "",
+                    modifier = Modifier.matchParentSize(),
+                    contentScale = ContentScale.Crop
+                )
+                Canvas(modifier = Modifier.matchParentSize()) {
+                    drawRect(
+                        brush = Brush.verticalGradient(
+                            colors = listOf(backgroundColor, Color.Transparent),
+                            startY = size.height,
+                            endY = size.height - 150f
+                        ),
+                        size = size
+                    )
+                }
+                Text(
+                    text = item.label,
+                    color = Color.White,
+                    modifier = Modifier
+                        .width(screenWidth / 3 - 10.dp)
+                        .padding(top = screenWidth / 3 - 46.dp, start = 8.dp),
+                    textAlign = TextAlign.Start,
+                    fontSize = 15.sp
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun SixthCategoryRow(backgroundColor: Color) {
+    Box(
+        modifier = Modifier
+            .padding(start = 8.dp, end = 8.dp)
+            .fillMaxWidth()
+            .height(200.dp)
+            .clip(RoundedCornerShape(20.dp))
+    ) {
+        Image(
+            painter = painterResource(id = ConstansOfCategory.CategoryItems[13].icon),
+            contentDescription = "",
+            modifier = Modifier.matchParentSize(),
+            contentScale = ContentScale.Crop
+        )
+        Canvas(modifier = Modifier.matchParentSize()) {
+            drawRect(
+                brush = Brush.verticalGradient(
+                    colors = listOf(backgroundColor, Color.Transparent),
+                    startY = size.height,
+                    endY = size.height - 150f
+                ),
+                size = size
+            )
+        }
+        Text(
+            text = ConstansOfCategory.CategoryItems[13].label,
+            color = Color.White,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 170.dp, start = 8.dp),
+            textAlign = TextAlign.Start,
+            fontSize = 15.sp
+        )
+
+    }
+}
+
+
 
 @Composable
 fun ScreenFavorites(navController: NavController) {
