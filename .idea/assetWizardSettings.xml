@@ -23,7 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/apps/baseline_apps_24.xml" />
+                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/remove_red_eye/baseline_remove_red_eye_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -33,8 +33,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="5b5b5b" />
-                            <entry key="outputName" value="ic_apps" />
+                            <entry key="color" value="353535" />
+                            <entry key="outputName" value="ic_eye" />
                           </map>
                         </option>
                       </PersistentState>
