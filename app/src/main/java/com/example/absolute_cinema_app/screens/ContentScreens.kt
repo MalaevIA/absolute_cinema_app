@@ -30,10 +30,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -72,7 +70,6 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.example.absolute_cinema_app.FilmsData.CategoryData
 import com.example.absolute_cinema_app.FilmsData.ConstansOfCategory
 import com.example.absolute_cinema_app.FilmsData.ConstansOfFilms
 import com.example.absolute_cinema_app.FilmsData.ConstantsOfFilms2
@@ -814,9 +811,9 @@ fun ScreenFavorites(navController: NavController) {
         topBar = { TopAppBar(
             title = { Text(text = "Закладки", fontWeight = FontWeight.Bold) },
             actions = {
-                IconButton(onClick = { /* Действие при нажатии */ }) {
+                IconButton(onClick = {  }) {
                     Icon(
-                        imageVector = Icons.Default.List, // Заменить на свой ресурс
+                        imageVector = Icons.Default.List,
                         contentDescription = "фильтры"
                     )
                 }
@@ -921,6 +918,7 @@ fun ScreenSettings(navController: NavController) {
         }
     }
 }
+
 
 fun DropdownMenuItem(onClick: () -> Unit, interactionSource: @Composable () -> Unit) {
 

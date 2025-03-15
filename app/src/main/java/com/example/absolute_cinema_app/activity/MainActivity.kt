@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
 
                 NavHost(
                     navController = navController,
-                    startDestination = "ScreenCategories"//потом поменять
+                    startDestination = "ScreenMailAuth"//потом поменять
                 ) {
                     composable("ScreenMailAuth") {
                         ScreenMailAuth(
