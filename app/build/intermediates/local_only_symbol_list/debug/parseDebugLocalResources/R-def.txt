@@ -26,14 +26,15 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable magic_battle
 drawable melodrama
-drawable multfilm
+drawable multfilm2
 drawable showshank
 drawable snapedit_png
 drawable sport
 drawable superman
 drawable talk_show
 drawable thriller
-drawable war
+drawable war2
+drawable war3
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name

@@ -1,5 +1,9 @@
 [
     {
+        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_war3.png.flat",
+        "source": "com.example.absolute_cinema_app-main-55:/drawable/war3.png"
+    },
+    {
         "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-main-55:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
@@ -10,6 +14,10 @@
     {
         "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/drawable_superman.png.flat",
         "source": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-main-55:/drawable/superman.png"
+    },
+    {
+        "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/drawable_war2.png.flat",
+        "source": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-main-55:/drawable/war2.png"
     },
     {
         "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/drawable_ic_apps.xml.flat",
@@ -154,6 +162,10 @@
     {
         "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/drawable_talk_show.png.flat",
         "source": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-main-55:/drawable/talk_show.png"
+    },
+    {
+        "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/drawable_multfilm2.png.flat",
+        "source": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-main-55:/drawable/multfilm2.png"
     },
     {
         "merged": "/Users/ilamalaev/.gradle/daemon/8.9/com.example.absolute_cinema_app-debug-53:/mipmap-xxxhdpi_ic_launcher.webp.flat",
