@@ -101,7 +101,7 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable magic_battle
 drawable melodrama
-drawable multfilm
+drawable multfilm2
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -121,7 +121,8 @@ drawable sport
 drawable superman
 drawable talk_show
 drawable thriller
-drawable war
+drawable war2
+drawable war3
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
 id accessibility_custom_action_1
