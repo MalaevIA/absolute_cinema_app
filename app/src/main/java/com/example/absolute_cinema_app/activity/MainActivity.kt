@@ -12,6 +12,7 @@ import com.example.absolute_cinema_app.screens.ContentScreens.ScreenFavorites
 import com.example.absolute_cinema_app.screens.AuthScreens.ScreenMailAuth
 import com.example.absolute_cinema_app.screens.ContentScreens.ScreenMain
 import com.example.absolute_cinema_app.screens.AuthScreens.ScreenPasswordAuth
+import com.example.absolute_cinema_app.screens.ContentScreens.ScreenCategory
 import com.example.absolute_cinema_app.screens.ContentScreens.ScreenSettings
 import com.example.absolute_cinema_app.ui.theme.Absolute_cinema_appTheme
 
@@ -26,7 +27,7 @@ class MainActivity : ComponentActivity() {
 
                 NavHost(
                     navController = navController,
-                    startDestination = "ScreenFavorites"//потом поменять
+                    startDestination = "ScreenCategories"//потом поменять
                 ) {
                     composable("ScreenMailAuth") {
                         ScreenMailAuth(
@@ -58,6 +59,10 @@ class MainActivity : ComponentActivity() {
                         ScreenSettings(
                             navController = navController
                         )
+                    }
+                    composable("ScreenCategory/{genre}") { backStackEntry ->
+                        val genre = backStackEntry.arguments?.getString("genre") ?: "Категория"
+                        ScreenCategory(genre, navController)
                     }
                 }
             }

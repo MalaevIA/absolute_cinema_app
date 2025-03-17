@@ -4,7 +4,7 @@
             "outputFile": "com.example.absolute_cinema_app-mergeDebugResources-51:/values-ar/values-ar.xml",
             "map": [
                 {
-                    "source": "/Users/ilamalaev/.gradle/caches/8.9/transforms/5cfc41c070ad526e5fe579d7966ee19c/transformed/core-1.15.0/res/values-ar/values-ar.xml",
+                    "source": "/Users/ilamalaev/.gradle/caches/8.9/transforms/127b8632e596332c62d1c95cbbe30740/transformed/core-1.15.0/res/values-ar/values-ar.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -21,24 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/ilamalaev/.gradle/caches/8.9/transforms/d2ed61c69692969cd5fe41a7954a33be/transformed/foundation-release/res/values-ar/values-ar.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,139",
-                        "endColumns": "83,85",
-                        "endOffsets": "134,220"
-                    },
-                    "to": {
-                        "startLines": "84,85",
-                        "startColumns": "4,4",
-                        "startOffsets": "8602,8686",
-                        "endColumns": "83,85",
-                        "endOffsets": "8681,8767"
-                    }
-                },
-                {
-                    "source": "/Users/ilamalaev/.gradle/caches/8.9/transforms/4f86eded6af93fdcf3c7fb2e9fb0bc53/transformed/ui-release/res/values-ar/values-ar.xml",
+                    "source": "/Users/ilamalaev/.gradle/caches/8.9/transforms/9b1d0b20b05e7c0fcd7b0c52235c0427/transformed/ui-release/res/values-ar/values-ar.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -55,7 +38,24 @@
                     }
                 },
                 {
-                    "source": "/Users/ilamalaev/.gradle/caches/8.9/transforms/0fa5243fa0bfa21d3c2640c910973fd9/transformed/material3-release/res/values-ar/values-ar.xml",
+                    "source": "/Users/ilamalaev/.gradle/caches/8.9/transforms/3c005d6125d2125312b7bbc637ff1736/transformed/foundation-release/res/values-ar/values-ar.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,139",
+                        "endColumns": "83,85",
+                        "endOffsets": "134,220"
+                    },
+                    "to": {
+                        "startLines": "84,85",
+                        "startColumns": "4,4",
+                        "startOffsets": "8602,8686",
+                        "endColumns": "83,85",
+                        "endOffsets": "8681,8767"
+                    }
+                },
+                {
+                    "source": "/Users/ilamalaev/.gradle/caches/8.9/transforms/fd910c7fd97c1d1b26e990a868c6e1e5/transformed/material3-release/res/values-ar/values-ar.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

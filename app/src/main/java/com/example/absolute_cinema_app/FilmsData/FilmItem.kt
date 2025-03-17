@@ -8,4 +8,5 @@ data class FilmItem(
     val icon: Int,
     val genre: String,
     val days_from_the_beginning_of_viewing: Int,
+
 )
