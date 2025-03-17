@@ -1,170 +1,170 @@
 [
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_war3.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/war3.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_drama.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/drama.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_ic_apps.xml.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/ic_apps.xml"
+        "merged": "com.example.absolute_cinema_app-debug-55:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_showshank.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/showshank.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_ic_eye.xml.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/ic_eye.xml"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_multfilm2.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/multfilm2.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_family.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/family.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_action_movie.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/action_movie.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_devils_advocate.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/devils_advocate.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/mipmap-anydpi_ic_launcher_round.xml.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/mipmap-anydpi/ic_launcher_round.xml"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_war3.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/war3.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_a_haunting_in_venice.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/a_haunting_in_venice.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_magic_battle.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/magic_battle.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_superman.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/superman.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/mipmap-anydpi/ic_launcher.xml"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_green_mile.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/green_mile.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_action_movie.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/action_movie.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_thriller.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/thriller.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_war2.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/war2.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_melodrama.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/melodrama.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_comedian.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/comedian.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_multfilm2.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/multfilm2.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/mipmap-anydpi_ic_launcher.xml.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/mipmap-anydpi/ic_launcher.xml"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_fantastic.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/fantastic.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_magic_battle.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/magic_battle.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_adventures.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/adventures.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_ic_eye.xml.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/ic_eye.xml"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/xml_backup_rules.xml.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/xml/backup_rules.xml"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_alladin2.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/alladin2.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/xml_data_extraction_rules.xml.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/xml/data_extraction_rules.xml"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_chair.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/chair.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_drama.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/drama.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_sport.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/sport.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_detective.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/detective.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_chair.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/chair.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_melodrama.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/melodrama.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_documentary.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/documentary.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_ic_apps.xml.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/ic_apps.xml"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/ic_launcher_foreground.xml"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_superman.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/superman.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_comedian.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/comedian.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_thriller.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/thriller.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_talk_show.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/talk_show.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "com.example.absolute_cinema_app-debug-55:/mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/mipmap-anydpi/ic_launcher_round.xml"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/ic_launcher_background.xml"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_green_mile.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/green_mile.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_a_haunting_in_venice.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/a_haunting_in_venice.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_devils_advocate.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/devils_advocate.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_detective.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/detective.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_snapedit_png.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/snapedit_png.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_alladin2.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/alladin2.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_snapedit_png.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/snapedit_png.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_showshank.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/showshank.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_adventures.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/adventures.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "com.example.absolute_cinema_app-debug-55:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_talk_show.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/talk_show.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_family.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/family.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "com.example.absolute_cinema_app-debug-55:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_fantastic.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/fantastic.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_war2.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/war2.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/drawable_documentary.png.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/drawable/documentary.png"
     },
     {
-        "merged": "com.example.absolute_cinema_app-debug-53:/drawable_sport.png.flat",
-        "source": "com.example.absolute_cinema_app-main-55:/drawable/sport.png"
+        "merged": "com.example.absolute_cinema_app-debug-55:/xml_backup_rules.xml.flat",
+        "source": "com.example.absolute_cinema_app-main-57:/xml/backup_rules.xml"
     }
 ]

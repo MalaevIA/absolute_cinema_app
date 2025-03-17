@@ -40,6 +40,9 @@ android {
 }
 
 dependencies {
+    implementation(libs.logging.interceptor)
+    implementation(libs.okhttp)
+    implementation(libs.coil.compose)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation (libs.androidx.navigation.compose)

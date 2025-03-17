@@ -7,13 +7,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.absolute_cinema_app.screens.ContentScreens.ScreenCategories
-import com.example.absolute_cinema_app.screens.ContentScreens.ScreenFavorites
-import com.example.absolute_cinema_app.screens.AuthScreens.ScreenMailAuth
-import com.example.absolute_cinema_app.screens.ContentScreens.ScreenMain
-import com.example.absolute_cinema_app.screens.AuthScreens.ScreenPasswordAuth
-import com.example.absolute_cinema_app.screens.ContentScreens.ScreenCategory
-import com.example.absolute_cinema_app.screens.ContentScreens.ScreenSettings
+import com.example.absolute_cinema_app.screens.ContentScreens.ScreenCategories.ScreenCategories
+import com.example.absolute_cinema_app.screens.ContentScreens.ScreenFavorites.ScreenFavorites
+import com.example.absolute_cinema_app.screens.AuthAndRegisterScreens.ScreenMailAuth
+import com.example.absolute_cinema_app.screens.ContentScreens.ScreenMain.ScreenMain
+import com.example.absolute_cinema_app.screens.AuthAndRegisterScreens.ScreenPasswordAuth
+import com.example.absolute_cinema_app.screens.ContentScreens.ScreenCategory.ScreenCategory
+import com.example.absolute_cinema_app.screens.ContentScreens.ScreenSettings.ScreenSettings
 import com.example.absolute_cinema_app.ui.theme.Absolute_cinema_appTheme
 
 

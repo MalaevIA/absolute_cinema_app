@@ -4,6 +4,7 @@ data class Film(
     val kinopoiskId: Int,
     val nameRu: String,
     val nameEn: String,
+    val nameOriginal: String,
     val posterUrl: String,
     val posterUrlPreview: String,
     val coverUrl: String,
