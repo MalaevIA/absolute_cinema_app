@@ -1,8 +1,10 @@
 package com.example.absolute_cinema_app.screens.ContentScreens
 
 import android.content.res.Configuration
+import android.widget.ImageButton
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -56,35 +58,38 @@ fun ScreenCategories(navController: NavController) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(PaddingValues(top = paddingValues.calculateTopPadding(), bottom = paddingValues.calculateBottomPadding()))
-
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            FirstCategoryRow(screenWidth, backgroundColor)
+            FirstCategoryRow(screenWidth, backgroundColor, navController)
 
-            SecondCategoryRow(screenWidth, backgroundColor)
+            SecondCategoryRow(screenWidth, backgroundColor, navController)
 
-            ThirdCategoryRow(screenWidth, backgroundColor)
+            ThirdCategoryRow(screenWidth, backgroundColor, navController)
 
-            FourthCategoryRow(screenWidth, backgroundColor)
+            FourthCategoryRow(screenWidth, backgroundColor, navController)
 
-            FifthCategoryRow(screenWidth, backgroundColor)
+            FifthCategoryRow(screenWidth, backgroundColor, navController)
 
-            SixthCategoryRow(screenWidth, backgroundColor)
+            SixthCategoryRow(screenWidth, backgroundColor, navController)
         }
     }
 }
 
 
 @Composable
-fun FirstCategoryRow(screenWidth: Dp, backgroundColor: Color) {
+fun FirstCategoryRow(screenWidth: Dp, backgroundColor: Color, navController: NavController) {
+
     Row(modifier = Modifier.height(screenWidth/2).fillMaxWidth()) {
         Box(modifier = Modifier.padding(start = 8.dp).width((screenWidth/5)*2)) {
+            val label = ConstansOfCategory.CategoryItems[0].label
+            val IdIcon = ConstansOfCategory.CategoryItems[0].icon
             Image(
-                painter = painterResource(id = ConstansOfCategory.CategoryItems[0].icon),
+                painter = painterResource(id = IdIcon),
                 contentDescription = "",
                 modifier = Modifier.matchParentSize()
-                    .clip(RoundedCornerShape(20.dp)),
+                    .clip(RoundedCornerShape(20.dp))
+                    .clickable { navController.navigate("ScreenCategory/$label") },
                 contentScale = ContentScale.Crop
             )
             Canvas(modifier = Modifier.matchParentSize()) {
@@ -98,7 +103,7 @@ fun FirstCategoryRow(screenWidth: Dp, backgroundColor: Color) {
                 )
             }
             Text(
-                text = ConstansOfCategory.CategoryItems[0].label,
+                text = label,
                 color = Color.White,
                 modifier = Modifier
 
@@ -147,7 +152,7 @@ fun FirstCategoryRow(screenWidth: Dp, backgroundColor: Color) {
 }
 
 @Composable
-fun SecondCategoryRow(screenWidth: Dp, backgroundColor: Color) {
+fun SecondCategoryRow(screenWidth: Dp, backgroundColor: Color, navController: NavController) {
     LazyRow(
         modifier = Modifier
             .padding(start = 8.dp)
@@ -195,7 +200,7 @@ fun SecondCategoryRow(screenWidth: Dp, backgroundColor: Color) {
 
 
 @Composable
-fun ThirdCategoryRow(screenWidth: Dp, backgroundColor: Color) {
+fun ThirdCategoryRow(screenWidth: Dp, backgroundColor: Color, navController: NavController) {
     Row(
         modifier = Modifier.height(screenWidth/2).fillMaxWidth()
     ) {
@@ -205,6 +210,7 @@ fun ThirdCategoryRow(screenWidth: Dp, backgroundColor: Color) {
                     Box(
                         modifier = Modifier
                             .padding(bottom = 8.dp)
+                            .clickable {  }
                             .width((screenWidth/5)*3)
                             .height(screenWidth/4 - 4.dp)
                             .clip(RoundedCornerShape(20.dp))
@@ -213,7 +219,7 @@ fun ThirdCategoryRow(screenWidth: Dp, backgroundColor: Color) {
                             painter = painterResource(id = item.icon),
                             contentDescription = "",
                             modifier = Modifier.matchParentSize(),
-                            contentScale = ContentScale.Crop
+                            contentScale = ContentScale.Crop,
                         )
                         Canvas(modifier = Modifier.matchParentSize()) {
                             drawRect(
@@ -273,7 +279,7 @@ fun ThirdCategoryRow(screenWidth: Dp, backgroundColor: Color) {
 }
 
 @Composable
-fun FourthCategoryRow(screenWidth: Dp, backgroundColor: Color) {
+fun FourthCategoryRow(screenWidth: Dp, backgroundColor: Color, navController: NavController) {
     LazyRow(
         modifier = Modifier
             .padding(start = 8.dp)
@@ -320,7 +326,7 @@ fun FourthCategoryRow(screenWidth: Dp, backgroundColor: Color) {
 }
 
 @Composable
-fun FifthCategoryRow(screenWidth: Dp, backgroundColor: Color) {
+fun FifthCategoryRow(screenWidth: Dp, backgroundColor: Color, navController: NavController) {
     LazyRow(
         modifier = Modifier
             .padding(start = 8.dp)
@@ -367,7 +373,7 @@ fun FifthCategoryRow(screenWidth: Dp, backgroundColor: Color) {
 }
 
 @Composable
-fun SixthCategoryRow(screenWidth: Dp,backgroundColor: Color) {
+fun SixthCategoryRow(screenWidth: Dp,backgroundColor: Color, navController: NavController) {
     Box(
         modifier = Modifier
             .padding(start = 8.dp, end = 8.dp)
