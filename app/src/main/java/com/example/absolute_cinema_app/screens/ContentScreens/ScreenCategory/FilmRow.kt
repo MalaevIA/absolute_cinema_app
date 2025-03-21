@@ -20,7 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import com.example.absolute_cinema_app.retroifit.Film
+import com.example.absolute_cinema_app.retroifit.FilmsRetrofit.Film
 
 @Composable
 fun FilmRow(film: Film, screenWidth: Dp) {

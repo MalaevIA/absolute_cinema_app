@@ -1,8 +1,11 @@
 package com.example.absolute_cinema_app.screens.AuthAndRegisterScreens
 
+import android.webkit.WebSettings.TextSize
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -36,15 +39,22 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.absolute_cinema_app.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ScreenMailAuth(onClickEnter: () -> Unit) {
+fun ScreenMailAuth(navController: NavController) {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -108,9 +118,10 @@ fun ScreenMailAuth(onClickEnter: () -> Unit) {
                     textAlign = TextAlign.Center
                 ),
                 keyboardActions = KeyboardActions(
-                    onDone = { onClickEnter() }
+                    onDone = { navController.navigate("ScreenPasswordAuth") }
                 ),
                 keyboardOptions = KeyboardOptions.Default.copy(
+                    keyboardType = KeyboardType.Email,
                     imeAction = ImeAction.Done
                 ),
                 colors = TextFieldDefaults.textFieldColors(
@@ -122,7 +133,7 @@ fun ScreenMailAuth(onClickEnter: () -> Unit) {
 
             if (text.isNotEmpty()) {
                 Button(
-                    onClick = onClickEnter,
+                    onClick = {navController.navigate("ScreenPasswordAuth")},
                     modifier = Modifier.padding(top = 250.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFFFFEB3B),
@@ -132,20 +143,47 @@ fun ScreenMailAuth(onClickEnter: () -> Unit) {
                     Text(text = "Далее")
                 }
             }
+            Spacer(modifier = Modifier.weight(1f))
+            Box(modifier = Modifier.align(Alignment.Start)
+                .padding(bottom = 16.dp)){
+                val annotatedText = buildAnnotatedString {
+                    withStyle(style = SpanStyle(color = Color.DarkGray)){
+                        append("Продолжая, вы соглашаетесь с нашей ")
+                    }
+                    pushStringAnnotation(tag = "policy", annotation = "https://example.com/privacy")
+                    append("политикой конфиденциальности")
+                    pop()
+                }
+                Column {
+                    Text(
+                        modifier = Modifier.padding(start = 16.dp, bottom = 8.dp)
+                            .clickable { navController.navigate("RegisterScreen") },
+                        text = "Регистрация",
+                        fontWeight = FontWeight.SemiBold,
+                        color = Color.Yellow,
+                        fontSize = 20.sp,
+                    )
+                    Text(
+                        modifier = Modifier.padding(start = 16.dp, bottom = 16.dp),
+                        text = annotatedText
+                    )
+                }
+            }
         }
     }
+
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ScreenPasswordAuth(onClickBack: () -> Unit, onClickAuth:() -> Unit){
+fun ScreenPasswordAuth(navController: NavController){
     Scaffold(
         topBar = {CenterAlignedTopAppBar(
             title = {
                 Text(text = "Войти")
             },
             navigationIcon = {
-                IconButton(onClick = onClickBack) {
+                IconButton(onClick = {navController.navigate("ScreenMailAuth")}) {
                     Icon(
                         imageVector = Icons.Default.ArrowBack,
                         contentDescription = "Назад"
@@ -209,11 +247,13 @@ fun ScreenPasswordAuth(onClickBack: () -> Unit, onClickAuth:() -> Unit){
                     textAlign = TextAlign.Center
                 ),
                 keyboardActions = KeyboardActions(
-                    onDone = {onClickAuth()}
+                    onDone = {navController.navigate("ScreenMain")}
                 ),
                 keyboardOptions = KeyboardOptions.Default.copy(
+                    keyboardType = KeyboardType.Password,
                     imeAction = ImeAction.Done
                 ),
+                visualTransformation = PasswordVisualTransformation(),
                 colors = TextFieldDefaults.textFieldColors(
                     containerColor = Color.Transparent,
                     focusedIndicatorColor = Color.Transparent,
@@ -223,7 +263,7 @@ fun ScreenPasswordAuth(onClickBack: () -> Unit, onClickAuth:() -> Unit){
 
             if (text.isNotEmpty()) {
                 Button(
-                    onClick = onClickAuth,
+                    onClick = {navController.navigate("ScreenMain")},
                     modifier = Modifier.padding(top = 250.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFFFFEB3B),
