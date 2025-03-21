@@ -24,8 +24,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.absolute_cinema_app.retroifit.Film
-import com.example.absolute_cinema_app.retroifit.FilmAPI
+import com.example.absolute_cinema_app.retroifit.FilmsRetrofit.Film
+import com.example.absolute_cinema_app.retroifit.FilmsRetrofit.FilmAPI
 import com.example.absolute_cinema_app.screens.Menu.BottomNavigationBar
 import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient

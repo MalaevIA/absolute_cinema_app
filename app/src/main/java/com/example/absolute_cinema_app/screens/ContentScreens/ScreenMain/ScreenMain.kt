@@ -63,25 +63,29 @@ import androidx.navigation.NavController
 import com.example.absolute_cinema_app.FilmsData.ConstansOfFilms
 import com.example.absolute_cinema_app.screens.Menu.BottomNavigationBar
 import com.example.absolute_cinema_app.R
+import com.example.absolute_cinema_app.retroifit.FilmsRetrofit.Film
 
 
 @Composable
 fun ScreenMain(
     navController: NavController
 ) {
+    var searchQuery by remember { mutableStateOf("") }
+    val filmState = remember { mutableStateOf<List<Film>>(emptyList()) }
+    val handleSearchResults: (List<Film>) -> Unit = { films ->
+        filmState.value = films
+    }
+
     val scrollState: ScrollState = rememberScrollState()
     val configuration: Configuration = LocalConfiguration.current
     val screenWidth: Dp = configuration.screenWidthDp.dp
     val imageAlpha: Float = 1f - (scrollState.value / 500f).coerceIn(0f, 1f)
     val backgroundColor: Color = MaterialTheme.colorScheme.background
 
-
-    var searchQuery by remember { mutableStateOf("")
-
-    }
     Scaffold(
         Modifier.background(MaterialTheme.colorScheme.background),
-        bottomBar = { BottomNavigationBar(navController) }
+        bottomBar = { BottomNavigationBar(navController) },
+
     ) { paddingValues ->
         Column(
             modifier = Modifier
@@ -92,7 +96,9 @@ fun ScreenMain(
         ) {
             PreviewCinema(screenWidth, imageAlpha, backgroundColor)
 
-            SearchBar(query = searchQuery, onQueryChange = { searchQuery = it })
+            OnSearchScreen(
+                navController
+            )
 
             ContinueView()
 
