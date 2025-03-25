@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
+
     implementation(libs.logging.interceptor)
     implementation(libs.okhttp)
     implementation(libs.coil.compose)

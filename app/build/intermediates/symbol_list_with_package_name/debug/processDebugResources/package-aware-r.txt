@@ -81,6 +81,7 @@ drawable abc_vector_test
 drawable action_movie
 drawable adventures
 drawable alladin2
+drawable camera
 drawable chair
 drawable comedian
 drawable detective

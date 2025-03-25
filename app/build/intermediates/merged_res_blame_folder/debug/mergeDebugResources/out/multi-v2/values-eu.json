@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.absolute_cinema_app-mergeDebugResources-53:/values-eu/values-eu.xml",
+            "outputFile": "com.example.absolute_cinema_app-mergeDebugResources-54:/values-eu/values-eu.xml",
             "map": [
                 {
                     "source": "/Users/ilamalaev/.gradle/caches/8.9/transforms/f6d75f8f62896eee8f515bd89bf60b95/transformed/ui-release/res/values-eu/values-eu.xml",

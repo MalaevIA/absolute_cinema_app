@@ -11,6 +11,7 @@ drawable a_haunting_in_venice
 drawable action_movie
 drawable adventures
 drawable alladin2
+drawable camera
 drawable chair
 drawable comedian
 drawable detective

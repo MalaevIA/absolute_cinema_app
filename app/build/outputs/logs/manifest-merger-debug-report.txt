@@ -14,7 +14,6 @@ MERGED from [io.coil-kt:coil-compose-base:2.5.0] /Users/ilamalaev/.gradle/caches
 MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/8c8216d018c876c9f22b38e4453fcff8/transformed/accompanist-drawablepainter-0.32.0/AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.compose.material3:material3-android:1.2.1] /Users/ilamalaev/.gradle/caches/8.9/transforms/e3fc4d8c9099814bb428f425335f7138/transformed/material3-release/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.compose.material:material-ripple-android:1.6.6] /Users/ilamalaev/.gradle/caches/8.9/transforms/1b2ace081bf5e049ea9d1bdd5e7cb489/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.material:material-icons-core-android:1.6.6] /Users/ilamalaev/.gradle/caches/8.9/transforms/a010621af02b1c673f8a7c2c6117445d/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.material:material-android:1.6.6] /Users/ilamalaev/.gradle/caches/8.9/transforms/f4d79f4175c255bdfb8e2ab1cac39ebf/transformed/material-release/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/7a74d4ba879109dfad91fe69e43b8b76/transformed/foundation-layout-release/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.foundation:foundation-android:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/283ad0fbe5da6cd556ca1f95701ae440/transformed/foundation-release/AndroidManifest.xml:2:1-7:12
@@ -29,6 +28,8 @@ MERGED from [androidx.compose.ui:ui-graphics-android:1.7.2] /Users/ilamalaev/.gr
 MERGED from [androidx.compose.ui:ui-test-manifest:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/85ac9d2e5ac68df15299ed1076630e43/transformed/ui-test-manifest-1.7.2/AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/d8d5758868d31a79af360821102d9454/transformed/ui-tooling-release/AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.compose.animation:animation-android:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/8485549231cc9982d6fb44412727169c/transformed/animation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.8] /Users/ilamalaev/.gradle/caches/8.9/transforms/b372cb3675bc3500eec156d63888e23b/transformed/material-icons-extended-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] /Users/ilamalaev/.gradle/caches/8.9/transforms/e74d3210a2591068005c4f33cb2c7af1/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
 MERGED from [io.coil-kt:coil:2.5.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/e64ef74da42bf109ccde1f2f4c64bff1/transformed/coil-2.5.0/AndroidManifest.xml:2:1-7:12
 MERGED from [io.coil-kt:coil-base:2.5.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc14b3efd109fb109db5d3d7e4c83bd/transformed/coil-base-2.5.0/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/ilamalaev/.gradle/caches/8.9/transforms/ac14989ba1821371e69bb5c1a3a50583/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
@@ -122,7 +123,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/ilam
 		ADDED from /Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:7:9-51
 	android:dataExtractionRules
 		ADDED from /Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:8:9-65
-activity#com.example.absolute_cinema_app.activity.MainActivity
+activity#com.example.absolute_cinema_app.presentation.activity.MainActivity
 ADDED from /Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:16:9-26:20
 	android:label
 		ADDED from /Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:19:13-45
@@ -131,7 +132,7 @@ ADDED from /Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidMani
 	android:theme
 		ADDED from /Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:20:13-61
 	android:name
-		ADDED from /Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:17:13-50
+		ADDED from /Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:17:13-63
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from /Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:21:13-25:29
 action#android.intent.action.MAIN
@@ -166,8 +167,6 @@ MERGED from [androidx.compose.material3:material3-android:1.2.1] /Users/ilamalae
 MERGED from [androidx.compose.material3:material3-android:1.2.1] /Users/ilamalaev/.gradle/caches/8.9/transforms/e3fc4d8c9099814bb428f425335f7138/transformed/material3-release/AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.material:material-ripple-android:1.6.6] /Users/ilamalaev/.gradle/caches/8.9/transforms/1b2ace081bf5e049ea9d1bdd5e7cb489/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.material:material-ripple-android:1.6.6] /Users/ilamalaev/.gradle/caches/8.9/transforms/1b2ace081bf5e049ea9d1bdd5e7cb489/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-icons-core-android:1.6.6] /Users/ilamalaev/.gradle/caches/8.9/transforms/a010621af02b1c673f8a7c2c6117445d/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-icons-core-android:1.6.6] /Users/ilamalaev/.gradle/caches/8.9/transforms/a010621af02b1c673f8a7c2c6117445d/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.material:material-android:1.6.6] /Users/ilamalaev/.gradle/caches/8.9/transforms/f4d79f4175c255bdfb8e2ab1cac39ebf/transformed/material-release/AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.material:material-android:1.6.6] /Users/ilamalaev/.gradle/caches/8.9/transforms/f4d79f4175c255bdfb8e2ab1cac39ebf/transformed/material-release/AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.foundation:foundation-layout-android:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/7a74d4ba879109dfad91fe69e43b8b76/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
@@ -196,6 +195,10 @@ MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/ilamalaev/.gra
 MERGED from [androidx.compose.ui:ui-tooling-android:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/d8d5758868d31a79af360821102d9454/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
 MERGED from [androidx.compose.animation:animation-android:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/8485549231cc9982d6fb44412727169c/transformed/animation-release/AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.animation:animation-android:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/8485549231cc9982d6fb44412727169c/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.8] /Users/ilamalaev/.gradle/caches/8.9/transforms/b372cb3675bc3500eec156d63888e23b/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.8] /Users/ilamalaev/.gradle/caches/8.9/transforms/b372cb3675bc3500eec156d63888e23b/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] /Users/ilamalaev/.gradle/caches/8.9/transforms/e74d3210a2591068005c4f33cb2c7af1/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] /Users/ilamalaev/.gradle/caches/8.9/transforms/e74d3210a2591068005c4f33cb2c7af1/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
 MERGED from [io.coil-kt:coil:2.5.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/e64ef74da42bf109ccde1f2f4c64bff1/transformed/coil-2.5.0/AndroidManifest.xml:5:5-44
 MERGED from [io.coil-kt:coil:2.5.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/e64ef74da42bf109ccde1f2f4c64bff1/transformed/coil-2.5.0/AndroidManifest.xml:5:5-44
 MERGED from [io.coil-kt:coil-base:2.5.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc14b3efd109fb109db5d3d7e4c83bd/transformed/coil-base-2.5.0/AndroidManifest.xml:5:5-44
