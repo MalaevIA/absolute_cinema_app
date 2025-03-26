@@ -55,8 +55,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.absolute_cinema_app.R
-import com.example.absolute_cinema_app.domain.FilmsRetrofit.Film
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmAPI
+import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmForSearch
+import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmResponseForSearch
 import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenCategory.FilmRow
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -91,7 +92,7 @@ fun ScreenSearch(navController: NavController) {
     }
 
 
-    var filmState by remember { mutableStateOf<List<Film>>(emptyList()) }
+    var filmState by remember { mutableStateOf<List<FilmForSearch>>(emptyList()) }
 
     val interceptor = HttpLoggingInterceptor()
     interceptor.level = HttpLoggingInterceptor.Level.BODY
@@ -276,7 +277,7 @@ fun ScreenSearch(navController: NavController) {
                         items(filmState) { film ->
 
                             Log.d("FilmItem", film.toString())
-                            FilmRow(film,screenWidth,navController)
+                            FilmRowForSearch(film,screenWidth,navController)
                         }
                     }
                 }
