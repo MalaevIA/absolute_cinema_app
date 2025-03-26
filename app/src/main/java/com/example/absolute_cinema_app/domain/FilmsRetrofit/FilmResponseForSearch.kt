@@ -4,5 +4,5 @@ data class FilmResponseForSearch(
     val keyword: String,
     val pagesCount: Int,
     val searchFilmsCountResult: Int,
-    val films: List<Film>
+    val films: List<FilmForSearch>
 )
