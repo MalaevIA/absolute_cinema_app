@@ -15,7 +15,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.PlayArrow
@@ -24,6 +26,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -42,8 +45,10 @@ import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.Film
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmAPI
+import com.example.absolute_cinema_app.domain.FilmsRetrofit.Review
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -66,20 +71,19 @@ fun ScreenFilm( kinopoiskId:Int, navController: NavController){
         .baseUrl("https://kinopoiskapiunofficial.tech/").client(client)
         .addConverterFactory(GsonConverterFactory.create()).build()
     val filmApi = retrofitInstance.create(FilmAPI::class.java)
-    val composableScope = rememberCoroutineScope()
-    composableScope.launch(Dispatchers.IO) {
-        try{
-            val film = filmApi.getFilmById(kinopoiskId)
+    LaunchedEffect(kinopoiskId) {
+        try {
+            val film = withContext(Dispatchers.IO) { filmApi.getFilmById(kinopoiskId) }
             filmState.value = film
-
-        } catch (e: Exception){
-            Log.e("Server","${e.message}")
+        } catch (e: Exception) {
+            Log.e("Server", "Ошибка загрузки фильма: ${e.message}")
         }
     }
 
-
+    val scrollState = rememberScrollState()
     filmState.value?.let { film ->
         Column(modifier = Modifier.fillMaxSize()
+            .verticalScroll(scrollState)
             .background(MaterialTheme.colorScheme.background)) {
             Box(Modifier.fillMaxWidth().height(screenWidth / 2 * 3),
                 contentAlignment = Alignment.Center){
@@ -158,18 +162,19 @@ fun ScreenFilm( kinopoiskId:Int, navController: NavController){
                 }
 
             }
-            Text(text = "Описание",
-                modifier = Modifier.padding(all = 10.dp),
-                color = Color.White,
-                fontSize = 15.sp,
-                fontWeight = FontWeight.Bold
-            )
-            Text(text = filmState.value!!.description,
-                modifier = Modifier.padding(bottom = 8.dp, start = 8.dp),
-                color = Color.LightGray,
-                fontSize = 15.sp,)
-
-            if((filmState.value!!.ratingImdb != null) and (filmState.value!!.ratingKinopoisk != null)){
+            if(filmState.value!!.description!=null){
+                Text(text = "Описание",
+                    modifier = Modifier.padding(all = 10.dp),
+                    color = Color.White,
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Bold
+                )
+                Text(text = filmState.value!!.description,
+                    modifier = Modifier.padding(bottom = 8.dp, start = 8.dp),
+                    color = Color.LightGray,
+                    fontSize = 15.sp,)
+            }
+            if((filmState.value!!.ratingImdb != 0.0f) and (filmState.value!!.ratingKinopoisk != 0.0f)){
                 Text(text = "Рейтинг",
                     modifier = Modifier.padding(all = 10.dp),
                     color = Color.White,
@@ -181,7 +186,7 @@ fun ScreenFilm( kinopoiskId:Int, navController: NavController){
                     color = Color.LightGray,
                     fontSize = 15.sp,)
             }
-            else if((filmState.value!!.ratingImdb != null) and (filmState.value!!.ratingKinopoisk == null)){
+            else if((filmState.value!!.ratingImdb != 0.0f) and (filmState.value!!.ratingKinopoisk == 0.0f)){
                 Text(text = "Рейтинг",
                     modifier = Modifier.padding(all = 10.dp),
                     color = Color.White,
@@ -193,7 +198,7 @@ fun ScreenFilm( kinopoiskId:Int, navController: NavController){
                     color = Color.LightGray,
                     fontSize = 15.sp,)
             }
-            else if ((filmState.value!!.ratingImdb == null) and (filmState.value!!.ratingKinopoisk != null)){
+            else if ((filmState.value!!.ratingImdb == 0.0f) and (filmState.value!!.ratingKinopoisk != 0.0f)){
                 Text(text = "Рейтинг",
                     modifier = Modifier.padding(all = 10.dp),
                     color = Color.White,
@@ -213,13 +218,8 @@ fun ScreenFilm( kinopoiskId:Int, navController: NavController){
                     fontWeight = FontWeight.Bold
                 )
             }
-            Text(text = "Вам понравится",
-                modifier = Modifier.padding(all = 10.dp),
-                color = Color.White,
-                fontSize = 15.sp,
-                fontWeight = FontWeight.Bold
-            )
-
+            SimilarFilms(filmState.value!!.kinopoiskId, navController)
+            ReviewColumn(filmState.value!!.kinopoiskId)
         }
     } ?:
     Box(modifier = Modifier.fillMaxSize()

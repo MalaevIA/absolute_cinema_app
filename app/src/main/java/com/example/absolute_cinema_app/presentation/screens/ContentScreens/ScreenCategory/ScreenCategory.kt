@@ -80,7 +80,6 @@ fun ScreenCategory(genre:String, navController: NavController){
         try{
             val film = filmApi.getFilmsByGenre(idGenre!!)
             filmState.value = film.items
-
         } catch (e: Exception){
             Log.e("Server","${e.message}")
         }

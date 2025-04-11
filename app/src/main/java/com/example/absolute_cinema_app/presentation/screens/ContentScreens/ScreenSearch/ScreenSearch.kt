@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Configuration
+import android.net.ConnectivityManager
 import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -24,6 +25,7 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -57,10 +59,10 @@ import androidx.navigation.NavController
 import com.example.absolute_cinema_app.R
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmAPI
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmForSearch
-import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmResponseForSearch
-import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenCategory.FilmRow
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -108,23 +110,50 @@ fun ScreenSearch(navController: NavController) {
 
     var isLoading by remember { mutableStateOf(false) }
 
+    var isError by remember { mutableStateOf(false) }
 
+    fun checkInternetConnection(context: Context): Boolean {
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = connectivityManager.activeNetworkInfo
+        return networkInfo != null && networkInfo.isConnected
+    }
+    var isNetworkAvailable by remember { mutableStateOf(checkInternetConnection(context)) }
     val searchFilms = { query: String ->
         composableScope.launch {
+            if (!checkInternetConnection(context)) {
+                isNetworkAvailable = false
+                isLoading = false
+                return@launch
+            }
             if (query.isNotEmpty()) {
                 isLoading = true
+                isError = false
+                isNetworkAvailable = true
                 try {
                     val films = filmApi.getFilmsByKeyword(query, 1)
                     filmState = films.films
-                    Log.d("Films", "Полученные фильмы: ${films.films}")
+                    isError = films.films.isEmpty()
                 } catch (e: Exception) {
-                    Log.e("Server", "Ошибка: ${e.message}")
+                    isError = true
                     filmState = emptyList()
                 }
                 isLoading = false
             } else {
                 filmState = emptyList()
                 isLoading = false
+            }
+        }
+    }
+    var debounceJob: Job? = null
+
+
+    fun debounceSearch(query: String) {
+        debounceJob?.cancel()
+
+        debounceJob = composableScope.launch {
+            delay(2000)
+            if (query.isNotEmpty()) {
+                searchFilms(query)
             }
         }
     }
@@ -158,14 +187,15 @@ fun ScreenSearch(navController: NavController) {
                     .fillMaxWidth()
                     .padding(horizontal = 8.dp),
                 query = searchText,
-                onQueryChange = { searchText = it },
+                onQueryChange = { searchText = it
+                    debounceSearch(it)
+                                },
                 onSearch = {text ->
                     isActive = false
                     focusManager.clearFocus()
                     searchFilms(searchText)
                     sharedPrefs.edit().putString(KEY_HISTORY,searchText).apply()
                     if (text.isNotBlank() && !historyList.contains(text)) {
-                        // Добавляем в начало списка и ограничиваем до 10 элементов
                         historyList.add(0, text)
                         if (historyList.size > 10) {
                             historyList.removeLast()
@@ -261,7 +291,18 @@ fun ScreenSearch(navController: NavController) {
                     }
                 }
                 else {
-                    if (filmState.isNullOrEmpty()) {
+                     if (filmState.isEmpty() && searchText.isNotEmpty() && !isLoading) {
+                             item {
+                                 Column(
+                                     modifier = Modifier.fillMaxSize(),
+                                     verticalArrangement = Arrangement.Center,
+                                     horizontalAlignment = Alignment.CenterHorizontally
+                                 ) {
+                                     Text("Ничего не найдено")
+                                 }
+                             }
+                    }
+                    else if (filmState.isNullOrEmpty()) {
                         item {//загрузка
                             Column (modifier = Modifier.fillParentMaxSize(),
                                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -273,7 +314,22 @@ fun ScreenSearch(navController: NavController) {
                                 )
                             }
                         }
-                    } else {
+                    }
+                    if (!isNetworkAvailable) {
+                        item {
+                            Column(
+                                modifier = Modifier.fillMaxSize(),
+                                verticalArrangement = Arrangement.Center,
+                                horizontalAlignment = Alignment.CenterHorizontally
+                            ) {
+                                Text("Нет подключения к интернету")
+                                Button(onClick = { searchFilms(searchText) }) {
+                                    Text("Повторить")
+                                }
+                            }
+                        }
+                    }
+                    else {
                         items(filmState) { film ->
 
                             Log.d("FilmItem", film.toString())
@@ -305,7 +361,6 @@ fun getHistory(prefs: SharedPreferences, gson: Gson): List<String> {
         emptyList()
     }
 }
-
 
 
 
