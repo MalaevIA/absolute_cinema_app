@@ -16,6 +16,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -42,8 +43,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 fun ScreenCategory(genre:String, navController: NavController){
     val configuration: Configuration = LocalConfiguration.current
     val screenWidth: Dp = configuration.screenWidthDp.dp
-    val filmState = remember { mutableStateOf<List<Film>>(emptyList()) }
-
     val interceptor = HttpLoggingInterceptor()
     interceptor.level = HttpLoggingInterceptor.Level.BODY
 
@@ -75,13 +74,14 @@ fun ScreenCategory(genre:String, navController: NavController){
     // 15 - история 16 - музыка 17 - ужасы 18 - мультфильм 19 - семейный 20 - мюзикл 21 - спорт 22 - документальный 23 - короткометражка 24 - аниме 25 - ? 26 - новости 27 - концерт 28 - для взрослых 29 - церемония
     // 30 - реальное ТВ 31 - игра 33 - детский
 
-    val composableScope = rememberCoroutineScope()
-    composableScope.launch {
-        try{
+    val filmState = remember { mutableStateOf<List<Film>>(emptyList()) }
+
+    LaunchedEffect(idGenre) {
+        try {
             val film = filmApi.getFilmsByGenre(idGenre!!)
             filmState.value = film.items
-        } catch (e: Exception){
-            Log.e("Server","${e.message}")
+        } catch (e: Exception) {
+            Log.e("Server", "${e.message}")
         }
     }
     Scaffold(

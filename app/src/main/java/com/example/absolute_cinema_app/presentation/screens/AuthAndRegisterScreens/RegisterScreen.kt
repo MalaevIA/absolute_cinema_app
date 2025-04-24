@@ -61,7 +61,7 @@ fun RegisterScreen(navController: NavController) {
     val client = OkHttpClient.Builder()
         .addInterceptor(interceptor)
         .build()
-    val retrofit = Retrofit.Builder().baseUrl("https://dummyjson.com").client(client)
+    val retrofit = Retrofit.Builder().baseUrl("http://158.160.173.175:8080").client(client)
         .addConverterFactory(GsonConverterFactory.create()).build()
     val registerAPI = retrofit.create(RegisterAPI::class.java)
     Scaffold(

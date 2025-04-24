@@ -41,5 +41,16 @@ interface FilmAPI {
     suspend fun getAwardsToFilmById(
         id: Int
     )//дописать
-
+    @Headers("X-API-KEY: 87ce625c-ef38-47cd-a704-5c54679b209a")
+    @GET("api/v2.2/films/collections")
+    suspend fun getTopPopularFilms(
+        @Query("type") type: String = "TOP_POPULAR_ALL",
+        @Query("page") page: Int = 1
+    ):FilmCollectionResponse
+    @Headers("X-API-KEY: 87ce625c-ef38-47cd-a704-5c54679b209a")
+    @GET("api/v2.2/films/premieres")
+    suspend fun getPremieres(
+        @Query("year") year: Int,
+        @Query("month") month: String
+    ): PremiereResponse
 }

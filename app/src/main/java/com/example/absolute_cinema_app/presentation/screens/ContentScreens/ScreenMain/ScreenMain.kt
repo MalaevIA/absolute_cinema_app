@@ -53,17 +53,17 @@ fun ScreenMain(
                 .background(MaterialTheme.colorScheme.background)
                 .padding(bottom = paddingValues.calculateBottomPadding()) // Отступ под BottomNav
         ) {
-            PreviewCinema(screenWidth, imageAlpha, backgroundColor)
+            PreviewCinema(screenWidth, imageAlpha, backgroundColor, navController)
 
             OnSearchScreen(
                 navController
             )
 
-            ContinueView()
+            ContinueView(navController)
 
-            NewView()
+            NewView(navController)
 
-            NeedToWatchView()
+            NeedToWatchView(navController)
         }
     }
 }

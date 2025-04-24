@@ -31,11 +31,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.absolute_cinema_app.domain.FilmsData.ConstansOfFilms
 import com.example.absolute_cinema_app.R
 
 @Composable
-fun ContinueView(){
+fun ContinueView(navController: NavController){
     Column {
         Row (modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween ) {
@@ -44,7 +45,9 @@ fun ContinueView(){
                 modifier = Modifier.padding(16.dp),
                 color = MaterialTheme.colorScheme.onBackground
             )
-            IconButton(onClick = {},
+            IconButton(onClick = {
+
+            },
 
                 modifier = Modifier.clip(RoundedCornerShape(50.dp))
                     .background(Color.DarkGray)
