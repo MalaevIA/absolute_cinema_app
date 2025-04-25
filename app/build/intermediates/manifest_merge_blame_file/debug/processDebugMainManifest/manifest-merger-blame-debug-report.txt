@@ -27,129 +27,141 @@
 18-->[androidx.core:core:1.15.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/32520557638fddee2d81079f8dbd6a69/transformed/core-1.15.0/AndroidManifest.xml:26:22-94
 19
 20    <application
-20-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:7:5-29:19
-21        android:allowBackup="true"
-21-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:8:9-35
-22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-22-->[androidx.core:core:1.15.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/32520557638fddee2d81079f8dbd6a69/transformed/core-1.15.0/AndroidManifest.xml:28:18-86
-23        android:dataExtractionRules="@xml/data_extraction_rules"
-23-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:10:9-65
-24        android:debuggable="true"
-25        android:enableOnBackInvokedCallback="true"
-25-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:9:9-51
-26        android:extractNativeLibs="false"
-27        android:fullBackupContent="@xml/backup_rules"
-27-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:11:9-54
-28        android:icon="@mipmap/ic_launcher"
-28-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:12:9-43
-29        android:label="@string/app_name"
-29-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:13:9-41
-30        android:roundIcon="@mipmap/ic_launcher_round"
-30-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:14:9-54
-31        android:supportsRtl="true"
-31-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:15:9-35
-32        android:testOnly="true"
-33        android:theme="@style/Theme.Absolute_cinema_app" >
-33-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:16:9-57
-34        <activity
-34-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:18:9-28:20
-35            android:name="com.example.absolute_cinema_app.presentation.activity.MainActivity"
-35-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:19:13-63
-36            android:exported="true"
-36-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:20:13-36
-37            android:label="@string/app_name"
-37-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:21:13-45
-38            android:theme="@style/Theme.Absolute_cinema_app" >
-38-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:22:13-61
-39            <intent-filter>
-39-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:23:13-27:29
-40                <action android:name="android.intent.action.MAIN" />
-40-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:24:17-69
-40-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:24:25-66
-41
-42                <category android:name="android.intent.category.LAUNCHER" />
-42-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:26:17-77
-42-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:26:27-74
-43            </intent-filter>
-44        </activity>
-45        <activity
-45-->[androidx.compose.ui:ui-test-manifest:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/85ac9d2e5ac68df15299ed1076630e43/transformed/ui-test-manifest-1.7.2/AndroidManifest.xml:23:9-25:39
-46            android:name="androidx.activity.ComponentActivity"
-46-->[androidx.compose.ui:ui-test-manifest:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/85ac9d2e5ac68df15299ed1076630e43/transformed/ui-test-manifest-1.7.2/AndroidManifest.xml:24:13-63
-47            android:exported="true" />
-47-->[androidx.compose.ui:ui-test-manifest:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/85ac9d2e5ac68df15299ed1076630e43/transformed/ui-test-manifest-1.7.2/AndroidManifest.xml:25:13-36
-48        <activity
-48-->[androidx.compose.ui:ui-tooling-android:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/d8d5758868d31a79af360821102d9454/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
-49            android:name="androidx.compose.ui.tooling.PreviewActivity"
-49-->[androidx.compose.ui:ui-tooling-android:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/d8d5758868d31a79af360821102d9454/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
-50            android:exported="true" />
-50-->[androidx.compose.ui:ui-tooling-android:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/d8d5758868d31a79af360821102d9454/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+20-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:7:5-30:19
+21        android:name="com.example.absolute_cinema_app.domain.room.App"
+21-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:8:9-40
+22        android:allowBackup="true"
+22-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:9:9-35
+23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+23-->[androidx.core:core:1.15.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/32520557638fddee2d81079f8dbd6a69/transformed/core-1.15.0/AndroidManifest.xml:28:18-86
+24        android:dataExtractionRules="@xml/data_extraction_rules"
+24-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:11:9-65
+25        android:debuggable="true"
+26        android:enableOnBackInvokedCallback="true"
+26-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:10:9-51
+27        android:extractNativeLibs="false"
+28        android:fullBackupContent="@xml/backup_rules"
+28-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:12:9-54
+29        android:icon="@mipmap/ic_launcher"
+29-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:13:9-43
+30        android:label="@string/app_name"
+30-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:14:9-41
+31        android:roundIcon="@mipmap/ic_launcher_round"
+31-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:15:9-54
+32        android:supportsRtl="true"
+32-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:16:9-35
+33        android:testOnly="true"
+34        android:theme="@style/Theme.Absolute_cinema_app" >
+34-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:17:9-57
+35        <activity
+35-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:19:9-29:20
+36            android:name="com.example.absolute_cinema_app.presentation.activity.MainActivity"
+36-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:20:13-63
+37            android:exported="true"
+37-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:21:13-36
+38            android:label="@string/app_name"
+38-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:22:13-45
+39            android:theme="@style/Theme.Absolute_cinema_app" >
+39-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:23:13-61
+40            <intent-filter>
+40-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:24:13-28:29
+41                <action android:name="android.intent.action.MAIN" />
+41-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:25:17-69
+41-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:25:25-66
+42
+43                <category android:name="android.intent.category.LAUNCHER" />
+43-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:27:17-77
+43-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:27:27-74
+44            </intent-filter>
+45        </activity>
+46
+47        <service
+47-->[androidx.room:room-runtime:2.6.1] /Users/ilamalaev/.gradle/caches/8.9/transforms/9281a9bce25e9d7fb82ba7a1973f4faf/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+48            android:name="androidx.room.MultiInstanceInvalidationService"
+48-->[androidx.room:room-runtime:2.6.1] /Users/ilamalaev/.gradle/caches/8.9/transforms/9281a9bce25e9d7fb82ba7a1973f4faf/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+49            android:directBootAware="true"
+49-->[androidx.room:room-runtime:2.6.1] /Users/ilamalaev/.gradle/caches/8.9/transforms/9281a9bce25e9d7fb82ba7a1973f4faf/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+50            android:exported="false" />
+50-->[androidx.room:room-runtime:2.6.1] /Users/ilamalaev/.gradle/caches/8.9/transforms/9281a9bce25e9d7fb82ba7a1973f4faf/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
 51
-52        <provider
-52-->[androidx.emoji2:emoji2:1.3.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/bce08112f78e8aedc38547fc3642d186/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
-53            android:name="androidx.startup.InitializationProvider"
-53-->[androidx.emoji2:emoji2:1.3.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/bce08112f78e8aedc38547fc3642d186/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
-54            android:authorities="com.example.absolute_cinema_app.androidx-startup"
-54-->[androidx.emoji2:emoji2:1.3.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/bce08112f78e8aedc38547fc3642d186/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
-55            android:exported="false" >
-55-->[androidx.emoji2:emoji2:1.3.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/bce08112f78e8aedc38547fc3642d186/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
-56            <meta-data
-56-->[androidx.emoji2:emoji2:1.3.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/bce08112f78e8aedc38547fc3642d186/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
-57                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-57-->[androidx.emoji2:emoji2:1.3.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/bce08112f78e8aedc38547fc3642d186/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
-58                android:value="androidx.startup" />
-58-->[androidx.emoji2:emoji2:1.3.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/bce08112f78e8aedc38547fc3642d186/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
-59            <meta-data
-59-->[androidx.lifecycle:lifecycle-process:2.8.7] /Users/ilamalaev/.gradle/caches/8.9/transforms/6f79fd1b88f59ab12dd0e32373dee40d/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:29:13-31:52
-60                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-60-->[androidx.lifecycle:lifecycle-process:2.8.7] /Users/ilamalaev/.gradle/caches/8.9/transforms/6f79fd1b88f59ab12dd0e32373dee40d/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:30:17-78
-61                android:value="androidx.startup" />
-61-->[androidx.lifecycle:lifecycle-process:2.8.7] /Users/ilamalaev/.gradle/caches/8.9/transforms/6f79fd1b88f59ab12dd0e32373dee40d/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:31:17-49
-62            <meta-data
-62-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
-63                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-63-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
-64                android:value="androidx.startup" />
-64-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
-65        </provider>
-66
-67        <receiver
-67-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
-68            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-68-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
-69            android:directBootAware="false"
-69-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
-70            android:enabled="true"
-70-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
-71            android:exported="true"
-71-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
-72            android:permission="android.permission.DUMP" >
-72-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
-73            <intent-filter>
-73-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
-74                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-74-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
-74-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
-75            </intent-filter>
-76            <intent-filter>
-76-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
-77                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-77-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
-77-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
-78            </intent-filter>
-79            <intent-filter>
-79-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
-80                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-80-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
-80-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
-81            </intent-filter>
-82            <intent-filter>
-82-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
-83                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-83-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
-83-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
-84            </intent-filter>
-85        </receiver>
-86    </application>
-87
-88</manifest>
+52        <activity
+52-->[androidx.compose.ui:ui-tooling-android:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/d8d5758868d31a79af360821102d9454/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+53            android:name="androidx.compose.ui.tooling.PreviewActivity"
+53-->[androidx.compose.ui:ui-tooling-android:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/d8d5758868d31a79af360821102d9454/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+54            android:exported="true" />
+54-->[androidx.compose.ui:ui-tooling-android:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/d8d5758868d31a79af360821102d9454/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+55        <activity
+55-->[androidx.compose.ui:ui-test-manifest:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/85ac9d2e5ac68df15299ed1076630e43/transformed/ui-test-manifest-1.7.2/AndroidManifest.xml:23:9-25:39
+56            android:name="androidx.activity.ComponentActivity"
+56-->[androidx.compose.ui:ui-test-manifest:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/85ac9d2e5ac68df15299ed1076630e43/transformed/ui-test-manifest-1.7.2/AndroidManifest.xml:24:13-63
+57            android:exported="true" />
+57-->[androidx.compose.ui:ui-test-manifest:1.7.2] /Users/ilamalaev/.gradle/caches/8.9/transforms/85ac9d2e5ac68df15299ed1076630e43/transformed/ui-test-manifest-1.7.2/AndroidManifest.xml:25:13-36
+58
+59        <provider
+59-->[androidx.emoji2:emoji2:1.3.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/bce08112f78e8aedc38547fc3642d186/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+60            android:name="androidx.startup.InitializationProvider"
+60-->[androidx.emoji2:emoji2:1.3.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/bce08112f78e8aedc38547fc3642d186/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+61            android:authorities="com.example.absolute_cinema_app.androidx-startup"
+61-->[androidx.emoji2:emoji2:1.3.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/bce08112f78e8aedc38547fc3642d186/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+62            android:exported="false" >
+62-->[androidx.emoji2:emoji2:1.3.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/bce08112f78e8aedc38547fc3642d186/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+63            <meta-data
+63-->[androidx.emoji2:emoji2:1.3.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/bce08112f78e8aedc38547fc3642d186/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+64                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+64-->[androidx.emoji2:emoji2:1.3.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/bce08112f78e8aedc38547fc3642d186/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+65                android:value="androidx.startup" />
+65-->[androidx.emoji2:emoji2:1.3.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/bce08112f78e8aedc38547fc3642d186/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+66            <meta-data
+66-->[androidx.lifecycle:lifecycle-process:2.8.7] /Users/ilamalaev/.gradle/caches/8.9/transforms/6f79fd1b88f59ab12dd0e32373dee40d/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:29:13-31:52
+67                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+67-->[androidx.lifecycle:lifecycle-process:2.8.7] /Users/ilamalaev/.gradle/caches/8.9/transforms/6f79fd1b88f59ab12dd0e32373dee40d/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:30:17-78
+68                android:value="androidx.startup" />
+68-->[androidx.lifecycle:lifecycle-process:2.8.7] /Users/ilamalaev/.gradle/caches/8.9/transforms/6f79fd1b88f59ab12dd0e32373dee40d/transformed/lifecycle-process-2.8.7/AndroidManifest.xml:31:17-49
+69            <meta-data
+69-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+70                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+70-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+71                android:value="androidx.startup" />
+71-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+72        </provider>
+73
+74        <receiver
+74-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+75            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+75-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+76            android:directBootAware="false"
+76-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+77            android:enabled="true"
+77-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+78            android:exported="true"
+78-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+79            android:permission="android.permission.DUMP" >
+79-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+80            <intent-filter>
+80-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+81                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+81-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+81-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+82            </intent-filter>
+83            <intent-filter>
+83-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+84                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+84-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+84-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+85            </intent-filter>
+86            <intent-filter>
+86-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+87                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+87-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+87-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+88            </intent-filter>
+89            <intent-filter>
+89-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+90                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+90-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+90-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/ilamalaev/.gradle/caches/8.9/transforms/0cc7c1bf3d275e33ed77a2606036b0e9/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
+91            </intent-filter>
+92        </receiver>
+93    </application>
+94
+95</manifest>

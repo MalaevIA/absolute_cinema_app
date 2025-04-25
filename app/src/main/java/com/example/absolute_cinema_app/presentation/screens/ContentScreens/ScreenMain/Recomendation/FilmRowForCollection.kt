@@ -23,14 +23,18 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmCollectionResponse_item
+import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenMain.ContinueWatch.ContinueFilmsViewModel
 
 @Composable
-fun FilmRowForCollection(film: FilmCollectionResponse_item, screenWidth: Dp, navController: NavController) {
+fun FilmRowForCollection(film: FilmCollectionResponse_item, screenWidth: Dp, navController: NavController,viewModel: ContinueFilmsViewModel = androidx.lifecycle.viewmodel.compose.viewModel(factory = ContinueFilmsViewModel.factory)) {
+    val name = if(film.nameOriginal == null){if(film.nameRu== null){film.nameEn}else{film.nameRu}} else{film.nameOriginal}
+    val genre = film.genres.joinToString { it.genre }
     Row (modifier = Modifier.height(screenWidth/2)
         .fillMaxWidth()
         .padding(top = 8.dp)
         .background(Color.Transparent, shape = RoundedCornerShape(8.dp))
-        .clickable { navController.navigate("ScreenFilm/${film.kinopoiskId}") }){
+        .clickable { navController.navigate("ScreenFilm/${film.kinopoiskId}")
+        viewModel.insertFilm(film.kinopoiskId,film.posterUrl,genre,name)}){
         Image(
             painter =  rememberAsyncImagePainter(film.posterUrl),
             contentDescription = "Постер фильма",
@@ -46,7 +50,7 @@ fun FilmRowForCollection(film: FilmCollectionResponse_item, screenWidth: Dp, nav
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            val name = if(film.nameOriginal == null){if(film.nameRu== null){film.nameEn}else{film.nameRu}} else{film.nameOriginal}
+
             Text(text = "Название: ${name}", fontWeight = FontWeight.Bold, color = Color.White)
             Text(text = "Жанр: ${film.genres.joinToString { it.genre }}", color = Color.White)
         }

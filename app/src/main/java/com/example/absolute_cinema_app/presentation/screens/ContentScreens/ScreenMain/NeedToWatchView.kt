@@ -44,13 +44,15 @@ import coil.compose.rememberAsyncImagePainter
 import com.example.absolute_cinema_app.domain.FilmsData.ConstansOfFilms
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmAPI
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmCollectionResponse_item
+import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenMain.ContinueWatch.ContinueFilmsViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 @Composable
-fun NeedToWatchView(navController: NavController){
+fun NeedToWatchView(navController: NavController,
+                    viewModel: ContinueFilmsViewModel = androidx.lifecycle.viewmodel.compose.viewModel(factory = ContinueFilmsViewModel.factory)){
     val filmState = remember { mutableStateOf<List<FilmCollectionResponse_item>>(emptyList()) }
 
     val interceptor = HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
@@ -96,7 +98,10 @@ fun NeedToWatchView(navController: NavController){
         LazyRow (modifier = Modifier
             .height(330.dp)) {
             items(filmState.value.take(5)) { film ->
-                Box(modifier = Modifier.clickable { navController.navigate("ScreenFilm/${film.kinopoiskId}")}){
+                val name = if(film.nameOriginal == null){if(film.nameRu== null){film.nameEn}else{film.nameRu}} else{film.nameOriginal}
+                val genre = film.genres.joinToString { it.genre }
+                Box(modifier = Modifier.clickable { navController.navigate("ScreenFilm/${film.kinopoiskId}")
+                viewModel.insertFilm(film.kinopoiskId,film.posterUrl,genre,name)}){
                     Image(
                         painter = rememberAsyncImagePainter(film.posterUrl),
                         contentDescription = "",

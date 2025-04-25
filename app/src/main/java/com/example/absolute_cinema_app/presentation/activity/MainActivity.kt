@@ -14,10 +14,11 @@ import com.example.absolute_cinema_app.presentation.screens.ContentScreens.Scree
 import com.example.absolute_cinema_app.presentation.screens.AuthAndRegisterScreens.ScreenMailAuth
 import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenMain.ScreenMain
 import com.example.absolute_cinema_app.presentation.screens.AuthAndRegisterScreens.ScreenPasswordAuth
-import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenCategory.ScreenCategory
+import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenCategories.ScreenCategory.ScreenCategory
 import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenSearch.ScreenSearch
 import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenSettings.ScreenSettings
 import com.example.absolute_cinema_app.presentation.screens.ContentScreens.Film.ScreenFilm
+import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenMain.ContinueWatch.ScreenContinueWatch
 import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenMain.Recomendation.ScreenRecomendation
 import com.example.absolute_cinema_app.presentation.theme.Absolute_cinema_appTheme
 
@@ -39,6 +40,7 @@ class MainActivity : ComponentActivity() {
                             navController = navController
                         )
                     }
+
                     composable("ScreenPasswordAuth"){
                         ScreenPasswordAuth(
                             navController = navController
@@ -46,6 +48,11 @@ class MainActivity : ComponentActivity() {
                     }
                     composable("ScreenMain"){
                         ScreenMain(
+                            navController = navController
+                        )
+                    }
+                    composable("ScreenContinueWatch"){
+                        ScreenContinueWatch(
                             navController = navController
                         )
                     }

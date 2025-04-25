@@ -51,6 +51,7 @@ import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmAPI
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmCollectionResponse
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmCollectionResponse_item
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.PremiereResponseItem
+import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenMain.ContinueWatch.ContinueFilmsViewModel
 import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -59,7 +60,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.Calendar
 
 @Composable
-fun NewView(navController: NavController){
+fun NewView(navController: NavController,
+            viewModel: ContinueFilmsViewModel = androidx.lifecycle.viewmodel.compose.viewModel(factory = ContinueFilmsViewModel.factory)){
 
     val calendar = Calendar.getInstance()
     val year = calendar.get(Calendar.YEAR)
@@ -126,8 +128,11 @@ fun NewView(navController: NavController){
         LazyRow (modifier = Modifier
             .height(330.dp)) {
             items(filmState.value.take(5)) { film ->
+                val name = if(film.nameRu== null){film.nameEn}else{film.nameRu}
+                val genre = film.genres.joinToString { it.genre }
                 Box(
-                    modifier = Modifier.clickable { navController.navigate("ScreenFilm/${film.kinopoiskId}") }
+                    modifier = Modifier.clickable { navController.navigate("ScreenFilm/${film.kinopoiskId}")
+                    viewModel.insertFilm(film.kinopoiskId,film.posterUrl,genre,name)}
                 ){
                     Image(
                         painter = rememberAsyncImagePainter(film.posterUrl),

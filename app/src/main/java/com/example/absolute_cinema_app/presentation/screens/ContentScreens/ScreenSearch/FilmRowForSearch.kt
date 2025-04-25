@@ -23,13 +23,18 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmForSearch
+import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenMain.ContinueWatch.ContinueFilmsViewModel
+
 @Composable
-fun FilmRowForSearch(film: FilmForSearch, screenWidth: Dp, navController: NavController) {
+fun FilmRowForSearch(film: FilmForSearch, screenWidth: Dp, navController: NavController, viewModel: ContinueFilmsViewModel = androidx.lifecycle.viewmodel.compose.viewModel(factory = ContinueFilmsViewModel.factory)) {
+    val name = if(film.nameRu== null){film.nameEn}else{film.nameRu}
+    val genre = film.genres.joinToString { it.genre }
     Row (modifier = Modifier.height(screenWidth/2)
         .fillMaxWidth()
         .padding(top = 8.dp)
         .background(Color.Transparent, shape = RoundedCornerShape(8.dp))
-        .clickable { navController.navigate("ScreenFilm/${film.filmId}") }){
+        .clickable { navController.navigate("ScreenFilm/${film.filmId}")
+            viewModel.insertFilm(film.filmId,film.posterUrl,genre,name)}){
         Image(
             painter =  rememberAsyncImagePainter(film.posterUrl),
             contentDescription = "Постер фильма",

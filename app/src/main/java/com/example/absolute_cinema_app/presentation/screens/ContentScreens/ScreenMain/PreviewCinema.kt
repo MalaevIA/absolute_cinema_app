@@ -34,13 +34,15 @@ import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmAPI
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmCollectionResponse_item
+import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenMain.ContinueWatch.ContinueFilmsViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 @Composable
-fun PreviewCinema(screenWidth: Dp, imageAlpha: Float, backgroundColor: Color, navController: NavController){
+fun PreviewCinema(screenWidth: Dp, imageAlpha: Float, backgroundColor: Color, navController: NavController,
+                  viewModel: ContinueFilmsViewModel = androidx.lifecycle.viewmodel.compose.viewModel(factory = ContinueFilmsViewModel.factory)){
     val filmState = remember { mutableStateOf<List<FilmCollectionResponse_item>>(emptyList()) }
 
     val interceptor = HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
@@ -63,6 +65,7 @@ fun PreviewCinema(screenWidth: Dp, imageAlpha: Float, backgroundColor: Color, na
 
     val listState = rememberLazyListState()
     val flingBehavior = rememberSnapFlingBehavior(lazyListState = listState)
+
     LazyRow(
         state = listState,
         flingBehavior = flingBehavior,
@@ -72,14 +75,16 @@ fun PreviewCinema(screenWidth: Dp, imageAlpha: Float, backgroundColor: Color, na
 
     ) {
         items(filmState.value) {film ->
+            val name = if(film.nameOriginal == null){if(film.nameRu== null){film.nameEn}else{film.nameRu}} else{film.nameOriginal}
             Box(
                 modifier = Modifier
                     .width(screenWidth)
                     .height(screenWidth*4/3)
-                    .clickable { navController.navigate("ScreenFilm/${film.kinopoiskId}")}
+                    .clickable { navController.navigate("ScreenFilm/${film.kinopoiskId}")
+                    viewModel.insertFilm(film.kinopoiskId,film.posterUrl,film.genres.joinToString { it.genre },name)}
             ) {
                 Text(
-                    text = if(film.nameOriginal == null){if(film.nameRu== null){film.nameEn!!}else{film.nameRu}} else{film.nameOriginal},
+                    text = name!!,
                     color = Color(0xFFFFEB3B),
                     modifier = Modifier
                         .zIndex(3f)
