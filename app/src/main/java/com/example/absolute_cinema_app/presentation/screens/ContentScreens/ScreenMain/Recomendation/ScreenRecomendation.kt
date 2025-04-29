@@ -10,8 +10,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -87,7 +92,7 @@ fun ScreenRecomendation(Recomendation:String, navController: NavController){
         "Смотрите" ->
             LaunchedEffect(Unit) {
                 try {
-                    val film = filmApi.getTopPopularFilms(type = "TOP_POPULAR_ALL", page = 1)
+                    val film = filmApi.getTopPopularFilms(type = "TOP_250_MOVIES", page = 1)
                     filmStateNeedToWatch.value = film.items
                 } catch (e: Exception) {
                     Log.e("Server", "Ошибка: ${e.message}")
@@ -96,8 +101,21 @@ fun ScreenRecomendation(Recomendation:String, navController: NavController){
 
     }
     Scaffold(
-        bottomBar = { BottomNavigationBar(navController) },
-        topBar = { TopAppBar(title = { Text(text = Recomendation, fontWeight = FontWeight.Bold) }) }
+        topBar = {CenterAlignedTopAppBar(
+                title = {
+                    Text(text = Recomendation)
+                },
+                navigationIcon = {
+                    IconButton(onClick = {navController.popBackStack()}) {//.navigate("ScreenMain")}) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = "Назад"
+                        )
+                    }
+                }
+            )
+
+        }
     ){paddingValues ->
         if(Recomendation.equals("Новинки")){
             val filmState = filmStateForNew

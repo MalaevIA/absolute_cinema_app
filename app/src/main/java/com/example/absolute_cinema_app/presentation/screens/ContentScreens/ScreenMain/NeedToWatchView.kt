@@ -66,7 +66,7 @@ fun NeedToWatchView(navController: NavController,
 
     LaunchedEffect(Unit) {
         try {
-            val film = filmApi.getTopPopularFilms(type = "TOP_POPULAR_ALL", page = 1)
+            val film = filmApi.getTopPopularFilms(type = "TOP_250_MOVIES", page = 1)
             filmState.value = film.items
         } catch (e: Exception) {
             Log.e("Server", "Ошибка: ${e.message}")

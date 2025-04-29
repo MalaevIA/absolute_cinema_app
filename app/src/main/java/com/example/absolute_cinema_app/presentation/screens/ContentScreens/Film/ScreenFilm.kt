@@ -19,10 +19,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -87,7 +89,6 @@ fun ScreenFilm( kinopoiskId:Int, navController: NavController){
             .background(MaterialTheme.colorScheme.background)) {
             Box(Modifier.fillMaxWidth().height(screenWidth / 2 * 3),
                 contentAlignment = Alignment.Center){
-
                 Image(
                     modifier = Modifier.matchParentSize(),
                     painter =  rememberAsyncImagePainter(filmState.value!!.posterUrl),
@@ -103,6 +104,23 @@ fun ScreenFilm( kinopoiskId:Int, navController: NavController){
                         ),
                         size = size
                     )
+                }
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(screenWidth / 2 * 3)
+                ) {
+                    IconButton(
+                        onClick = { navController.popBackStack() },
+                        modifier = Modifier
+                            .align(Alignment.TopStart)
+                            .padding(16.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = "Назад"
+                        )
+                    }
                 }
                 Box(
                     modifier = Modifier

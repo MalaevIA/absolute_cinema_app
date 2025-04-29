@@ -178,7 +178,7 @@ fun ScreenMailAuth(navController: NavController) {
 @Composable
 fun ScreenPasswordAuth(navController: NavController){
     Scaffold(
-        topBar = {CenterAlignedTopAppBar(
+        topBar = {CenterAlignedTopAppBar(//
             title = {
                 Text(text = "Войти")
             },
