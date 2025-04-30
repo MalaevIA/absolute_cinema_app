@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
     entities = [
         FilmEntity::class
     ],
-    version = 2
+    version = 3
 )
 abstract class ContinueFilmsDB:RoomDatabase(){
     abstract val dao: DAOFilm
