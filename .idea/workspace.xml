@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d79fe714-5867-4635-9015-b4e2a8623227" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/absolute_cinema_app/presentation/screens/AuthAndRegisterScreens/AuthScreens.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/absolute_cinema_app/presentation/screens/AuthAndRegisterScreens/AuthScreens.kt" afterDir="false" />
-    </list>
+    <list default="true" id="d79fe714-5867-4635-9015-b4e2a8623227" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -229,5 +227,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="проверка" />
+    <option name="LAST_COMMIT_MESSAGE" value="проверка" />
   </component>
 </project>
