@@ -190,7 +190,7 @@ fun ScreenPasswordAuth(navController: NavController){
                     )
                 }
             }
-        )})
+        )})//
     { innerPadding ->
         Column(
             modifier = Modifier
