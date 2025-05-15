@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.absolute_cinema_app-mergeDebugResources-61:/values-zh-rCN/values-zh-rCN.xml",
+            "outputFile": "com.example.absolute_cinema_app-mergeDebugResources-63:/values-zh-rCN/values-zh-rCN.xml",
             "map": [
                 {
                     "source": "/Users/ilamalaev/.gradle/caches/8.9/transforms/e3fc4d8c9099814bb428f425335f7138/transformed/material3-release/res/values-zh-rCN/values-zh-rCN.xml",

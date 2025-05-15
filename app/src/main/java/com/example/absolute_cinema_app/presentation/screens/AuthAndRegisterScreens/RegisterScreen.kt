@@ -1,5 +1,6 @@
 package com.example.absolute_cinema_app.presentation.screens.AuthAndRegisterScreens
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -30,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
@@ -42,11 +44,14 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.absolute_cinema_app.R
+import com.example.absolute_cinema_app.domain.RegisterRetrfit.AuthApiClient
 import com.example.absolute_cinema_app.domain.RegisterRetrfit.RegisterAPI
+import com.example.absolute_cinema_app.domain.RegisterRetrfit.TokenManager
 import com.example.absolute_cinema_app.domain.RegisterRetrfit.UserRequest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -55,15 +60,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RegisterScreen(navController: NavController) {
-    val interceptor = HttpLoggingInterceptor()
-    interceptor.level = HttpLoggingInterceptor.Level.BODY
-
-    val client = OkHttpClient.Builder()
-        .addInterceptor(interceptor)
-        .build()
-    val retrofit = Retrofit.Builder().baseUrl("http://158.160.173.175:8080").client(client)
-        .addConverterFactory(GsonConverterFactory.create()).build()
-    val registerAPI = retrofit.create(RegisterAPI::class.java)
+    val context = LocalContext.current
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -167,12 +164,29 @@ fun RegisterScreen(navController: NavController) {
                 Button(
                     onClick = {
                         CoroutineScope(Dispatchers.IO).launch {
-                            val user = registerAPI.Register(
-                                UserRequest(textMail,textPassword)
-                            )
+                            try {
+                                val response = AuthApiClient.authApi.Register(UserRequest(textMail, textPassword))
+                                TokenManager.saveToken(context, response.token)
+                                withContext(Dispatchers.Main) {
+                                    Toast.makeText(
+                                        context,
+                                        "Регистрация успешна: ${response.token}",
+                                        Toast.LENGTH_LONG
+                                    ).show()
+                                    navController.navigate("ScreenMain")
+                                }
+                            } catch (e: Exception) {
+                                withContext(Dispatchers.Main) {
+                                    Toast.makeText(
+                                        context,
+                                        "Ошибка регистрации: ${e.localizedMessage}",
+                                        Toast.LENGTH_LONG
+                                    ).show()
+                                }
+                            }
                         }
                     },
-                    modifier = Modifier.padding(top = 250.dp),
+                    modifier = Modifier.padding(top = 100.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFFFFEB3B),
                         contentColor = Color.Black

@@ -2,6 +2,7 @@ package com.example.absolute_cinema_app.presentation.screens.ContentScreens.Film
 
 import android.content.res.Configuration
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -39,6 +40,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -48,6 +50,10 @@ import coil.compose.rememberAsyncImagePainter
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.Film
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmAPI
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.Review
+import com.example.absolute_cinema_app.domain.RegisterRetrfit.AuthApiClient
+import com.example.absolute_cinema_app.domain.RegisterRetrfit.FavoriteRequest
+import com.example.absolute_cinema_app.domain.RegisterRetrfit.TokenManager
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -57,11 +63,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 @Composable
-fun ScreenFilm( kinopoiskId:Int, navController: NavController){
+fun ScreenFilm( kinopoiskId:Int, navController: NavController){//написать проверку для фильма есть ли он в избранном при открытии карточки
     val configuration: Configuration = LocalConfiguration.current
     val screenWidth: Dp = configuration.screenWidthDp.dp
     val backgroundColor: Color = MaterialTheme.colorScheme.background
-
+    val context = LocalContext.current
     val filmState = remember { mutableStateOf<Film?>(null) }
 
     val interceptor = HttpLoggingInterceptor()
@@ -162,7 +168,42 @@ fun ScreenFilm( kinopoiskId:Int, navController: NavController){
                         .size(54.dp)
                         .clip(CircleShape)
                         .background(Color.DarkGray)
-                        .clickable {  },
+                        .clickable {
+                            CoroutineScope(Dispatchers.IO).launch {
+                                try {
+
+                                    val token_ = TokenManager.getToken(context)
+                                    val token = "Bearer $token_"
+                                    val response = AuthApiClient.authApi.addToFavorites(
+                                        token,
+                                        FavoriteRequest(kinopoiskId.toString())
+                                    )
+                                    withContext(Dispatchers.Main) {
+                                        if (response.isSuccessful) {
+                                            Toast.makeText(
+                                                context,
+                                                "Добавлено в избранное",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        } else {
+                                            Toast.makeText(
+                                                context,
+                                                "Ошибка: ${response.code()}",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    }
+                                } catch (e: Exception) {
+                                    withContext(Dispatchers.Main) {
+                                        Toast.makeText(
+                                            context,
+                                            "Ошибка: ${e.message}",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                }
+                            }
+                        },
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
@@ -175,7 +216,8 @@ fun ScreenFilm( kinopoiskId:Int, navController: NavController){
                         imageVector = Icons.Default.Favorite,
                         contentDescription = "Favorite Icon",
                         tint = Color.DarkGray,
-                        modifier = Modifier.fillMaxSize(0.7f)
+                        modifier = Modifier.fillMaxSize(0.7f),
+
                     )
                 }
 

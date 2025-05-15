@@ -81,7 +81,8 @@ public final class DAOFilm_Impl implements DAOFilm {
   }
 
   @Override
-  public Object insertFilm(final FilmEntity filmEntity, final Continuation<? super Unit> arg1) {
+  public Object insertFilm(final FilmEntity filmEntity,
+      final Continuation<? super Unit> $completion) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -95,11 +96,12 @@ public final class DAOFilm_Impl implements DAOFilm {
           __db.endTransaction();
         }
       }
-    }, arg1);
+    }, $completion);
   }
 
   @Override
-  public Object deleteFilm(final FilmEntity filmEntity, final Continuation<? super Unit> arg1) {
+  public Object deleteFilm(final FilmEntity filmEntity,
+      final Continuation<? super Unit> $completion) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -113,7 +115,7 @@ public final class DAOFilm_Impl implements DAOFilm {
           __db.endTransaction();
         }
       }
-    }, arg1);
+    }, $completion);
   }
 
   @Override

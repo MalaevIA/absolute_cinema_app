@@ -47,3 +47,4 @@ string auth_ru
 style Theme.Absolute_cinema_app
 xml backup_rules
 xml data_extraction_rules
+xml network_security_config

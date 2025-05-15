@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
 
                 NavHost(
                     navController = navController,
-                    startDestination = "ScreenMain"//потом поменять
+                    startDestination = "ScreenMailAuth"//потом поменять
                 ) {
                     composable("ScreenMailAuth") {
                         ScreenMailAuth(
@@ -41,10 +41,9 @@ class MainActivity : ComponentActivity() {
                         )
                     }
 
-                    composable("ScreenPasswordAuth"){
-                        ScreenPasswordAuth(
-                            navController = navController
-                        )
+                    composable("ScreenPasswordAuth/{email}") { backStackEntry ->
+                        val email = backStackEntry.arguments?.getString("email") ?: "null"
+                        ScreenPasswordAuth(email, navController)
                     }
                     composable("ScreenMain"){
                         ScreenMain(

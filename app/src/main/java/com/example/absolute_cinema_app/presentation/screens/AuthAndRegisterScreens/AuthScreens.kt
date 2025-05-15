@@ -1,6 +1,7 @@
 package com.example.absolute_cinema_app.presentation.screens.AuthAndRegisterScreens
 
 import android.webkit.WebSettings.TextSize
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -37,6 +38,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
@@ -51,6 +53,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.absolute_cinema_app.R
+import com.example.absolute_cinema_app.domain.RegisterRetrfit.AuthApiClient
+import com.example.absolute_cinema_app.domain.RegisterRetrfit.TokenManager
+import com.example.absolute_cinema_app.domain.RegisterRetrfit.UserRequest
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -118,7 +127,7 @@ fun ScreenMailAuth(navController: NavController) {
                     textAlign = TextAlign.Center
                 ),
                 keyboardActions = KeyboardActions(
-                    onDone = { navController.navigate("ScreenPasswordAuth") }
+                    onDone = { navController.navigate("ScreenPasswordAuth/$text") }
                 ),
                 keyboardOptions = KeyboardOptions.Default.copy(
                     keyboardType = KeyboardType.Email,
@@ -133,7 +142,7 @@ fun ScreenMailAuth(navController: NavController) {
 
             if (text.isNotEmpty()) {
                 Button(
-                    onClick = {navController.navigate("ScreenPasswordAuth")},
+                    onClick = {navController.navigate("ScreenPasswordAuth/$text")},
                     modifier = Modifier.padding(top = 250.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFFFFEB3B),
@@ -176,7 +185,7 @@ fun ScreenMailAuth(navController: NavController) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ScreenPasswordAuth(navController: NavController){
+fun ScreenPasswordAuth(email:String,navController: NavController){
     Scaffold(
         topBar = {CenterAlignedTopAppBar(//
             title = {
@@ -229,7 +238,7 @@ fun ScreenPasswordAuth(navController: NavController){
             )
 
             var text by remember { mutableStateOf("") }
-
+            val context = LocalContext.current
             TextField(
                 value = text,
                 onValueChange = { text = it },
@@ -247,7 +256,31 @@ fun ScreenPasswordAuth(navController: NavController){
                     textAlign = TextAlign.Center
                 ),
                 keyboardActions = KeyboardActions(
-                    onDone = {navController.navigate("ScreenMain")}
+                    onDone = {
+                        CoroutineScope(Dispatchers.IO).launch {
+                            try {
+                                val response = AuthApiClient.authApi.Login(UserRequest(email, text))
+                                TokenManager.saveToken(context, response.token)
+                                withContext(Dispatchers.Main) {
+                                    Toast.makeText(
+                                        context,
+                                        "Вход успешен: ${response.token}",
+                                        Toast.LENGTH_LONG
+                                    ).show()
+
+                                    navController.navigate("ScreenMain")
+                                }
+                            } catch (e: Exception) {
+                                withContext(Dispatchers.Main) {
+                                    Toast.makeText(
+                                        context,
+                                        "Ошибка входа: ${e.localizedMessage}",
+                                        Toast.LENGTH_LONG
+                                    ).show()
+                                }
+                            }
+                        }
+                    }
                 ),
                 keyboardOptions = KeyboardOptions.Default.copy(
                     keyboardType = KeyboardType.Password,
@@ -263,7 +296,28 @@ fun ScreenPasswordAuth(navController: NavController){
 
             if (text.isNotEmpty()) {
                 Button(
-                    onClick = {navController.navigate("ScreenMain")},
+                    onClick = {CoroutineScope(Dispatchers.IO).launch {
+                        try {
+                            val response = AuthApiClient.authApi.Login(UserRequest(email, text))
+                            TokenManager.saveToken(context, response.token)
+                            withContext(Dispatchers.Main) {
+                                Toast.makeText(
+                                    context,
+                                    "Вход успешен: ${response.token}",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                                navController.navigate("ScreenMain")
+                            }
+                        } catch (e: Exception) {
+                            withContext(Dispatchers.Main) {
+                                Toast.makeText(
+                                    context,
+                                    "Ошибка регистрации: ${e.localizedMessage}",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        }
+                    }},
                     modifier = Modifier.padding(top = 250.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFFFFEB3B),
