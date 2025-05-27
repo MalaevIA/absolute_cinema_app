@@ -1,0 +1,2 @@
+05-27 23:32:10.856 15723 15737 I TestRunner: started: testThemePreference_saveAndLoad(com.example.absolute_cinema_app.ExampleInstrumentedTest)
+05-27 23:32:10.876 15723 15737 I TestRunner: finished: testThemePreference_saveAndLoad(com.example.absolute_cinema_app.ExampleInstrumentedTest)

@@ -12,11 +12,9 @@ import kotlinx.coroutines.launch
 class AuthViewModel(application: Application) : AndroidViewModel(application) {
     private val _isAuthorized = mutableStateOf(false)
     val isAuthorized: State<Boolean> = _isAuthorized
-
     init {
         checkAuthorization()
     }
-
     fun checkAuthorization() {
         viewModelScope.launch(Dispatchers.IO) {
             val context = getApplication<Application>().applicationContext

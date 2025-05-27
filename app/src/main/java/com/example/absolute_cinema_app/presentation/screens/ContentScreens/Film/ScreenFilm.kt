@@ -151,26 +151,6 @@ fun ScreenFilm( kinopoiskId:Int, navController: NavController){//написат�
                         )
                     }
                 }
-                Box(
-                    modifier = Modifier
-                        .size(54.dp)
-                        .clip(CircleShape)
-                        .background(Color.DarkGray),
-                    contentAlignment = Alignment.Center
-                ){
-                    Icon(
-                        imageVector = Icons.Default.PlayArrow,
-                        contentDescription = "play Icon",
-                        tint = Color.Yellow,
-                        modifier = Modifier.fillMaxSize()
-                    )
-                    Icon(
-                        imageVector = Icons.Default.PlayArrow,
-                        contentDescription = "play Icon",
-                        tint = Color.DarkGray,
-                        modifier = Modifier.fillMaxSize(0.8f)
-                    )
-                }
             }
             val name = if(film.nameOriginal == null){if(film.nameRu== null){film.nameEn}else{film.nameRu}} else{film.nameOriginal}
             Row{

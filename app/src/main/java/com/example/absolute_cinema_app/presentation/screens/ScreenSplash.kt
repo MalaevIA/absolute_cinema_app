@@ -67,7 +67,7 @@ fun ScreenSplash(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF1F1F1F))
+            .background(Color(0xFF222322))
         ,
         contentAlignment = Alignment.Center
     ) {
