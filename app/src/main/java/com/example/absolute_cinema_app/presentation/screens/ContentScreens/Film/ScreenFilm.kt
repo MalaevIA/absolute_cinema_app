@@ -1,6 +1,8 @@
 package com.example.absolute_cinema_app.presentation.screens.ContentScreens.Film
 
+import android.content.Intent
 import android.content.res.Configuration
+import android.net.Uri
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.Canvas
@@ -10,6 +12,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -18,6 +21,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -55,6 +59,7 @@ import com.example.absolute_cinema_app.domain.RegisterRetrfit.AuthApiClient
 import com.example.absolute_cinema_app.domain.viewModels.AuthViewModel
 import com.example.absolute_cinema_app.data.models.authModels.FavoriteRequest
 import com.example.absolute_cinema_app.data.Tokens.TokenManager
+import com.example.absolute_cinema_app.data.models.filmsModels.VideoItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -91,6 +96,20 @@ fun ScreenFilm( kinopoiskId:Int, navController: NavController){//написат�
             Log.e("Server", "Ошибка загрузки фильма: ${e.message}")
         }
     }
+    val videoList = remember { mutableStateOf<List<VideoItem>>(emptyList()) }
+
+    LaunchedEffect(kinopoiskId) {
+        try {
+            val film = withContext(Dispatchers.IO) { filmApi.getFilmById(kinopoiskId) }
+            filmState.value = film
+
+            val videos = withContext(Dispatchers.IO) { filmApi.getVideoForFilmById(kinopoiskId) }
+            videoList.value = videos.items
+        } catch (e: Exception) {
+            Log.e("Server", "Ошибка загрузки: ${e.message}")
+        }
+    }
+
 
     val scrollState = rememberScrollState()
     filmState.value?.let { film ->
@@ -270,6 +289,49 @@ fun ScreenFilm( kinopoiskId:Int, navController: NavController){//написат�
                     fontWeight = FontWeight.Bold
                 )
             }
+            if (videoList.value.isNotEmpty()) {
+                Text(
+                    text = "Видео",
+                    modifier = Modifier.padding(all = 10.dp),
+                    color = MaterialTheme.colorScheme.onBackground,
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Bold
+                )
+
+                videoList.value.forEach { video ->
+                    if (video.site.equals("YOUTUBE", ignoreCase = true)) {
+                        val videoId = video.url.substringAfterLast("=")
+                        val thumbnailUrl = "https://img.youtube.com/vi/$videoId/0.jpg"
+
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable {
+                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(video.url))
+                                    context.startActivity(intent)
+                                }
+                                .padding(8.dp)
+                        ) {
+                            Image(
+                                painter = rememberAsyncImagePainter(thumbnailUrl),
+                                contentDescription = video.name,
+                                modifier = Modifier
+                                    .size(100.dp)
+                                    .clip(RoundedCornerShape(8.dp)),
+                                contentScale = ContentScale.Crop
+                            )
+                            Spacer(modifier = Modifier.width(12.dp))
+                            Text(
+                                text = video.name,
+                                color = MaterialTheme.colorScheme.onBackground,
+                                fontSize = 14.sp
+                            )
+                        }
+                    }
+                }
+            }
+
             SimilarFilms(filmState.value!!.kinopoiskId, navController)
             ReviewColumn(filmState.value!!.kinopoiskId)
         }

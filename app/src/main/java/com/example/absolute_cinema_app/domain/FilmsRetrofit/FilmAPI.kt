@@ -7,6 +7,7 @@ import com.example.absolute_cinema_app.data.models.filmsModels.FilmResponseForSe
 import com.example.absolute_cinema_app.data.models.filmsModels.FilmResponseForSimilars
 import com.example.absolute_cinema_app.data.models.filmsModels.PremiereResponse
 import com.example.absolute_cinema_app.data.models.filmsModels.ResponseForReviews
+import com.example.absolute_cinema_app.data.models.filmsModels.VideoResponse
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
@@ -35,9 +36,7 @@ interface FilmAPI {
     ): FilmResponseForSimilars
     @Headers("X-API-KEY: 87ce625c-ef38-47cd-a704-5c54679b209a")
     @GET("api/v2.2/films/{id}/videos")
-    suspend fun getVideoForFilmById(
-        id: Int
-    )//дописать
+    suspend fun getVideoForFilmById(@Path("id") id: Int): VideoResponse
     @Headers("X-API-KEY: 87ce625c-ef38-47cd-a704-5c54679b209a")
     @GET("api/v2.2/films/{id}/reviews")
     suspend fun getReviewsToFilmById(
