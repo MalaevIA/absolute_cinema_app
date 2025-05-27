@@ -1,6 +1,9 @@
 package com.example.absolute_cinema_app.domain.RegisterRetrfit
 
-import retrofit2.Call
+import com.example.absolute_cinema_app.data.models.authModels.FavoriteRequest
+import com.example.absolute_cinema_app.data.models.authModels.FavoriteResponse
+import com.example.absolute_cinema_app.data.models.authModels.User
+import com.example.absolute_cinema_app.data.models.authModels.UserRequest
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -30,4 +33,6 @@ interface RegisterAPI {
         @Body request: FavoriteRequest,
         @Header("Authorization") token: String
     ): Response<Unit>
+
+    abstract fun isFavorite(token: String, toString: String): Any
 }

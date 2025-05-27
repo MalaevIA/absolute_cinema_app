@@ -33,7 +33,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -50,13 +49,12 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import com.example.absolute_cinema_app.domain.FilmsRetrofit.Film
+import com.example.absolute_cinema_app.data.models.filmsModels.Film
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmAPI
-import com.example.absolute_cinema_app.domain.FilmsRetrofit.Review
 import com.example.absolute_cinema_app.domain.RegisterRetrfit.AuthApiClient
-import com.example.absolute_cinema_app.domain.RegisterRetrfit.AuthViewModel
-import com.example.absolute_cinema_app.domain.RegisterRetrfit.FavoriteRequest
-import com.example.absolute_cinema_app.domain.RegisterRetrfit.TokenManager
+import com.example.absolute_cinema_app.domain.viewModels.AuthViewModel
+import com.example.absolute_cinema_app.data.models.authModels.FavoriteRequest
+import com.example.absolute_cinema_app.data.Tokens.TokenManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -28,8 +28,8 @@
 19
 20    <application
 20-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:7:5-31:19
-21        android:name="com.example.absolute_cinema_app.domain.room.App"
-21-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:9:9-40
+21        android:name="com.example.absolute_cinema_app.data.room.App"
+21-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:9:9-38
 22        android:allowBackup="true"
 22-->/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:10:9-35
 23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"

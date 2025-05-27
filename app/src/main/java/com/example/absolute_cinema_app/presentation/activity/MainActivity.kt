@@ -12,7 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.absolute_cinema_app.domain.themePreference.ThemePreference
+import com.example.absolute_cinema_app.data.themePreference.ThemePreference
 import com.example.absolute_cinema_app.presentation.screens.AuthAndRegisterScreens.RegisterScreen
 import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenCategories.ScreenCategories
 import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenFavorites.ScreenFavorites

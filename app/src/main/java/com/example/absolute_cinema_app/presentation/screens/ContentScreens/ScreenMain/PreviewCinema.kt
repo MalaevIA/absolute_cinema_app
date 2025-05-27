@@ -33,8 +33,8 @@ import androidx.compose.ui.zIndex
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmAPI
-import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmCollectionResponse_item
-import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenMain.ContinueWatch.ContinueFilmsViewModel
+import com.example.absolute_cinema_app.data.models.filmsModels.FilmCollectionResponse_item
+import com.example.absolute_cinema_app.domain.viewModels.ContinueFilmsViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

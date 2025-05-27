@@ -18,7 +18,7 @@
     <uses-permission android:name="com.example.absolute_cinema_app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
-        android:name="com.example.absolute_cinema_app.domain.room.App"
+        android:name="com.example.absolute_cinema_app.data.room.App"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"

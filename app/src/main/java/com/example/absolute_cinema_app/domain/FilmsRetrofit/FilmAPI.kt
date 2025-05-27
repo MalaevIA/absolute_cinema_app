@@ -1,5 +1,12 @@
 package com.example.absolute_cinema_app.domain.FilmsRetrofit
 
+import com.example.absolute_cinema_app.data.models.filmsModels.Film
+import com.example.absolute_cinema_app.data.models.filmsModels.FilmCollectionResponse
+import com.example.absolute_cinema_app.data.models.filmsModels.FilmResponseForGenre
+import com.example.absolute_cinema_app.data.models.filmsModels.FilmResponseForSearch
+import com.example.absolute_cinema_app.data.models.filmsModels.FilmResponseForSimilars
+import com.example.absolute_cinema_app.data.models.filmsModels.PremiereResponse
+import com.example.absolute_cinema_app.data.models.filmsModels.ResponseForReviews
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
@@ -25,7 +32,7 @@ interface FilmAPI {
     @GET("api/v2.2/films/{id}/similars")
     suspend fun getSimilarsFilmsById(
         @Path("id")id: Int
-    ):FilmResponseForSimilars
+    ): FilmResponseForSimilars
     @Headers("X-API-KEY: 87ce625c-ef38-47cd-a704-5c54679b209a")
     @GET("api/v2.2/films/{id}/videos")
     suspend fun getVideoForFilmById(
@@ -35,7 +42,7 @@ interface FilmAPI {
     @GET("api/v2.2/films/{id}/reviews")
     suspend fun getReviewsToFilmById(
         @Path("id")id: Int
-    ):ResponseForReviews
+    ): ResponseForReviews
     @Headers("X-API-KEY: 87ce625c-ef38-47cd-a704-5c54679b209a")
     @GET("api/v2.2/films/{id}/awards")
     suspend fun getAwardsToFilmById(
@@ -46,7 +53,7 @@ interface FilmAPI {
     suspend fun getTopPopularFilms(
         @Query("type") type: String = "TOP_POPULAR_ALL",
         @Query("page") page: Int = 1
-    ):FilmCollectionResponse
+    ): FilmCollectionResponse
     @Headers("X-API-KEY: 87ce625c-ef38-47cd-a704-5c54679b209a")
     @GET("api/v2.2/films/premieres")
     suspend fun getPremieres(

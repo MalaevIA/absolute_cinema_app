@@ -60,7 +60,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.absolute_cinema_app.R
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmAPI
-import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmForSearch
+import com.example.absolute_cinema_app.data.models.filmsModels.FilmForSearch
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Job

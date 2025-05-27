@@ -23,11 +23,11 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmCollectionResponse_item
-import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenMain.ContinueWatch.ContinueFilmsViewModel
+import com.example.absolute_cinema_app.data.models.filmsModels.FilmCollectionResponse_item
+import com.example.absolute_cinema_app.domain.viewModels.ContinueFilmsViewModel
 
 @Composable
-fun FilmRowForCollection(film: FilmCollectionResponse_item, screenWidth: Dp, navController: NavController,viewModel: ContinueFilmsViewModel = androidx.lifecycle.viewmodel.compose.viewModel(factory = ContinueFilmsViewModel.factory)) {
+fun FilmRowForCollection(film: FilmCollectionResponse_item, screenWidth: Dp, navController: NavController, viewModel: ContinueFilmsViewModel = androidx.lifecycle.viewmodel.compose.viewModel(factory = ContinueFilmsViewModel.factory)) {
     val name = if(film.nameOriginal == null){if(film.nameRu== null){film.nameEn}else{film.nameRu}} else{film.nameOriginal}
     val genre = film.genres.joinToString { it.genre }
     Row (modifier = Modifier.height(screenWidth/2)

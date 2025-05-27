@@ -37,10 +37,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.absolute_cinema_app.R
+import com.example.absolute_cinema_app.domain.viewModels.ContinueFilmsViewModel
 
 @Composable
 fun ContinueView(navController: NavController
-                 , viewModel:ContinueFilmsViewModel = androidx.lifecycle.viewmodel.compose.viewModel(factory = ContinueFilmsViewModel.factory)
+                 , viewModel: ContinueFilmsViewModel = androidx.lifecycle.viewmodel.compose.viewModel(factory = ContinueFilmsViewModel.factory)
     ) {
     val filmList = viewModel.filmList.collectAsState(emptyList())
     Column {

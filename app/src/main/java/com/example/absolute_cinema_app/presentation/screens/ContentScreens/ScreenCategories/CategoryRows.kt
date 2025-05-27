@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.absolute_cinema_app.domain.CategoryData.ConstansOfCategory
+import com.example.absolute_cinema_app.data.CategoryData.ConstansOfCategory
 
 @Composable
 fun FirstCategoryRow(screenWidth: Dp, backgroundColor: Color, navController: NavController) {

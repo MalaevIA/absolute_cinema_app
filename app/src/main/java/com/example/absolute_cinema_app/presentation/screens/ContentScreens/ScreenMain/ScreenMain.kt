@@ -20,12 +20,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.absolute_cinema_app.presentation.screens.Menu.BottomNavigationBar
-import com.example.absolute_cinema_app.domain.FilmsRetrofit.Film
-import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenMain.ContinueWatch.ContinueFilmsViewModel
+import com.example.absolute_cinema_app.data.models.filmsModels.Film
 import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenMain.ContinueWatch.ContinueView
 
 

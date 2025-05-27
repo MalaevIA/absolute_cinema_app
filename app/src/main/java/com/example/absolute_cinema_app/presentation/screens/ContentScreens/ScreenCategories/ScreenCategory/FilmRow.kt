@@ -23,8 +23,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import com.example.absolute_cinema_app.domain.FilmsRetrofit.Film
-import com.example.absolute_cinema_app.presentation.screens.ContentScreens.ScreenMain.ContinueWatch.ContinueFilmsViewModel
+import com.example.absolute_cinema_app.data.models.filmsModels.Film
+import com.example.absolute_cinema_app.domain.viewModels.ContinueFilmsViewModel
 
 @Composable
 fun FilmRow(film: Film, screenWidth: Dp, navController: NavController,

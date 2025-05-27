@@ -1,6 +1,5 @@
 package com.example.absolute_cinema_app.presentation.screens.AuthAndRegisterScreens
 
-import android.webkit.WebSettings.TextSize
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -56,8 +55,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.absolute_cinema_app.R
 import com.example.absolute_cinema_app.domain.RegisterRetrfit.AuthApiClient
-import com.example.absolute_cinema_app.domain.RegisterRetrfit.TokenManager
-import com.example.absolute_cinema_app.domain.RegisterRetrfit.UserRequest
+import com.example.absolute_cinema_app.data.Tokens.TokenManager
+import com.example.absolute_cinema_app.data.models.authModels.UserRequest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

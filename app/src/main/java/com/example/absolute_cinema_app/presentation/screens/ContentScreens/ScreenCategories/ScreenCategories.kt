@@ -40,7 +40,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.absolute_cinema_app.domain.CategoryData.ConstansOfCategory
+import com.example.absolute_cinema_app.data.CategoryData.ConstansOfCategory
 import com.example.absolute_cinema_app.presentation.screens.Menu.BottomNavigationBar
 
 @OptIn(ExperimentalMaterial3Api::class)

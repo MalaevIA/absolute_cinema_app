@@ -32,8 +32,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmAPI
-import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmCollectionResponse_item
-import com.example.absolute_cinema_app.domain.FilmsRetrofit.PremiereResponseItem
+import com.example.absolute_cinema_app.data.models.filmsModels.FilmCollectionResponse_item
+import com.example.absolute_cinema_app.data.models.filmsModels.PremiereResponseItem
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

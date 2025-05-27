@@ -1,0 +1,28 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.absolute_cinema_app-mergeDebugResources-63:/values-v31/values-v31.xml",
+            "map": [
+                {
+                    "source": "/Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/res/values-v31/themes.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "56",
+                        "endLines": "7",
+                        "endColumns": "12",
+                        "endOffsets": "398"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "397"
+                    }
+                }
+            ]
+        }
+    ]
+}

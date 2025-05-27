@@ -141,7 +141,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/ilam
 	android:dataExtractionRules
 		ADDED from /Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:12:9-65
 	android:name
-		ADDED from /Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:9:9-40
+		ADDED from /Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:9:9-38
 activity#com.example.absolute_cinema_app.presentation.activity.MainActivity
 ADDED from /Users/ilamalaev/Desktop/absolute_cinema_app/app/src/main/AndroidManifest.xml:20:9-30:20
 	android:label

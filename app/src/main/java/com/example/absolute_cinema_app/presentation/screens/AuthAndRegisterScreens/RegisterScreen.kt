@@ -45,17 +45,12 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.absolute_cinema_app.R
 import com.example.absolute_cinema_app.domain.RegisterRetrfit.AuthApiClient
-import com.example.absolute_cinema_app.domain.RegisterRetrfit.RegisterAPI
-import com.example.absolute_cinema_app.domain.RegisterRetrfit.TokenManager
-import com.example.absolute_cinema_app.domain.RegisterRetrfit.UserRequest
+import com.example.absolute_cinema_app.data.Tokens.TokenManager
+import com.example.absolute_cinema_app.data.models.authModels.UserRequest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

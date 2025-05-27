@@ -21,10 +21,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.absolute_cinema_app.R
-import com.example.absolute_cinema_app.domain.RegisterRetrfit.TokenManager
+import com.example.absolute_cinema_app.data.Tokens.TokenManager
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-
 import kotlinx.coroutines.launch
 
 @Composable
