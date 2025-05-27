@@ -49,7 +49,7 @@ fun ReviewColumn(id:Int){
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
                 text = "Отзывы:",
-                color = Color.White,
+                color = MaterialTheme.colorScheme.onBackground,
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(bottom = 8.dp)
@@ -75,7 +75,7 @@ fun ReviewItem(review: Review) {
         if (review.title != null){
             Text(
                 text = review.title,
-                color = Color.White,
+                color = MaterialTheme.colorScheme.onBackground,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold
             )
@@ -83,21 +83,21 @@ fun ReviewItem(review: Review) {
         if (review.author!= null){
             Text(
                 text = "Автор: ${review.author}",
-                color = Color.Gray,
+                color = MaterialTheme.colorScheme.onBackground,
                 fontSize = 14.sp
             )
         }
         if ((review.positiveRating!= null)and(review.negativeRating!= null)){
             Text(
                 text = "Положительные: ${review.positiveRating}, Отрицательные: ${review.negativeRating}",
-                color = Color.Gray,
+                color = MaterialTheme.colorScheme.onBackground,
                 fontSize = 14.sp
             )
         }
         if(review.description!= null){
             Text(
                 text = review.description,
-                color = Color.White,
+                color = MaterialTheme.colorScheme.onBackground,
                 fontSize = 14.sp,
                 modifier = Modifier.padding(top = 8.dp)
             )

@@ -4,43 +4,69 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.absolute_cinema_app.domain.RegisterRetrfit.TokenManager
+import com.example.absolute_cinema_app.domain.themePreference.ThemePreference
 import com.example.absolute_cinema_app.presentation.screens.Menu.BottomNavigationBar
-
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenSettings(navController: NavController) {
-    // Состояние темы: по умолчанию - светлая
+    val context = LocalContext.current
+    val themePref = remember { ThemePreference(context) }
     val isDarkTheme = remember { mutableStateOf(false) }
+    val isAuthorized = remember { mutableStateOf(false) }
+    val coroutineScope = rememberCoroutineScope()
 
-    // Переключаем тему при изменении состояния
-    val themeColors = if (isDarkTheme.value) darkColorScheme() else lightColorScheme()
+    // Получаем тему из DataStore
+    LaunchedEffect(Unit) {
+        themePref.themeFlow.collect {
+            isDarkTheme.value = it
+        }
+    }
 
-    MaterialTheme(colorScheme = themeColors) {
+    // Получаем токен из TokenManager
+    LaunchedEffect(Unit) {
+        val token = TokenManager.getToken(context)
+        isAuthorized.value = token != null
+    }
+
+    MaterialTheme(colorScheme = if (isDarkTheme.value) darkColorScheme() else lightColorScheme()) {
         Scaffold(
             bottomBar = { BottomNavigationBar(navController) },
             topBar = {
                 TopAppBar(
-                    title = { Text(text = "Настройки", fontWeight = FontWeight.Bold) }
+                    title = { Text("Настройки", fontWeight = FontWeight.Bold) }
                 )
             }
         ) { paddingValues ->
@@ -50,74 +76,63 @@ fun ScreenSettings(navController: NavController) {
                     .padding(paddingValues)
                     .padding(16.dp)
             ) {
-                // Переключатель темы (Светлая/Темная)
+                // Тема
                 Text("Тема")
                 Switch(
                     checked = isDarkTheme.value,
-                    onCheckedChange = { isDarkTheme.value = it }
+                    onCheckedChange = {
+                        isDarkTheme.value = it
+                        coroutineScope.launch {
+                            themePref.saveTheme(it)
+                        }
+                    },
+                    colors = SwitchDefaults.colors(
+                        checkedThumbColor = Color.Yellow,
+                        checkedTrackColor = Color(0xFFFFF59D), // светло-жёлтый
+                        uncheckedThumbColor = Color.Gray,
+                        uncheckedTrackColor = Color.LightGray
+                    )
                 )
-                Spacer(modifier = Modifier.height(16.dp))
 
-                // Язык приложения
-                Text("Язык")
-                DropdownMenu(
-                    expanded = false,
-                    onDismissRequest = { /* действие */ }
-                ) {
-                    DropdownMenuItem(onClick = { /* действие */ }) {
-                        Text("Русский")
-                    }
-                    DropdownMenuItem(onClick = { /* действие */ }) {
-                        Text("English")
-                    }
-                }
 
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(32.dp))
 
-                // Уведомления
-                Text("Уведомления")
-                Switch(
-                    checked = true, // состояние уведомлений
-                    onCheckedChange = { /* действие при изменении */ }
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-
-                // Рекомендации
-                Text("Рекомендации")
-                Column {
-                    Row {
-                        Checkbox(
-                            checked = true,
-                            onCheckedChange = { /* действие */ }
+                // Авторизация
+                if (isAuthorized.value) {
+                    Button(
+                        onClick = {
+                            coroutineScope.launch {
+                                TokenManager.clearToken(context)
+                                navController.navigate("ScreenMailAuth") {
+                                    popUpTo("ScreenMain") { inclusive = true }
+                                }
+                            }
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color.Yellow,
+                            contentColor = Color.Black // текст кнопки на жёлтом фоне
                         )
-                        Text("Жанры")
+                    ) {
+                        Text("Выйти из аккаунта")
                     }
-                    Row {
-                        Checkbox(
-                            checked = true,
-                            onCheckedChange = { /* действие */ }
+
+                } else {
+                    Button(
+                        onClick = {
+                            navController.navigate("ScreenMailAuth")
+                        },
+                        modifier = Modifier.fillMaxWidth(),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color.Yellow,
+                            contentColor = Color.Black
                         )
-                        Text("Год выпуска")
+                    ) {
+                        Text("Войти или зарегистрироваться")
                     }
-                }
-                Spacer(modifier = Modifier.height(16.dp))
 
-                // О нас / Справка
-                Text("О нас")
-                TextButton(onClick = { navController.navigate("about") }) {
-                    Text("Подробнее")
-                }
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                // Вход / Регистрация
-                Text("Аккаунт")
-                TextButton(onClick = { navController.navigate("login") }) {
-                    Text("Войти")
                 }
             }
         }
     }
 }
-
-fun DropdownMenuItem(onClick: () -> Unit, interactionSource: @Composable () -> Unit) {}

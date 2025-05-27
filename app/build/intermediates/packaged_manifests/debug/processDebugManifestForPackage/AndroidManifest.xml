@@ -27,7 +27,7 @@
         android:extractNativeLibs="false"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="KinoBaza"
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -36,7 +36,7 @@
         <activity
             android:name="com.example.absolute_cinema_app.presentation.activity.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
+            android:label="KinoBaza"
             android:theme="@style/Theme.Absolute_cinema_app" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

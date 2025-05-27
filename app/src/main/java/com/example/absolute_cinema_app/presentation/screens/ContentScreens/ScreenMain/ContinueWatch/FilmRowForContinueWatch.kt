@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -50,8 +51,8 @@ fun FilmRowForContinueWatch(film: FilmEntity, screenWidth: Dp, navController: Na
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
 
-            Text(text = "Название: ${film.label}", fontWeight = FontWeight.Bold, color = Color.White)
-            Text(text = "Жанр: ${film.genre}", color = Color.White)
+            Text(text = "Название: ${film.label}", fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.onBackground)
+            Text(text = "Жанр: ${film.genre}", color = MaterialTheme.colorScheme.onBackground)
         }
     }
 }

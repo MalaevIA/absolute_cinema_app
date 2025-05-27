@@ -77,7 +77,7 @@ fun SimilarFilms(id:Int, navController: NavController){
             Text(
                 text = "Вам понравится",
                 modifier = Modifier.padding(all = 10.dp),
-                color = Color.White,
+                color = MaterialTheme.colorScheme.onBackground,
                 fontSize = 15.sp,
                 fontWeight = FontWeight.Bold
             )
@@ -124,7 +124,7 @@ fun SimilarFilmItem(film: FilmForSimilars, navController: NavController) {
             modifier = Modifier.padding(top = 8.dp),
             text = film.nameRu ?: "Нет названия",
             fontWeight = FontWeight.SemiBold,
-            color = Color.White
+            color = MaterialTheme.colorScheme.onBackground
         )
     }
 }

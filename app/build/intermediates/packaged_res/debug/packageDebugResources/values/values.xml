@@ -13,5 +13,6 @@
     <string name="auth_password_description_ru"> Введите пароль</string>
     <string name="auth_password_ru">Пароль</string>
     <string name="auth_ru">Войти</string>
-    <style name="Theme.Absolute_cinema_app" parent="android:Theme.Material.Light.NoActionBar"/>
+    <style name="Theme.Absolute_cinema_app" parent="android:Theme.Material.Light.NoActionBar">
+    </style>
 </resources>

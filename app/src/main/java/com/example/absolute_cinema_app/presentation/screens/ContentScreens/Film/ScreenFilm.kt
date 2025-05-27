@@ -30,11 +30,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -45,12 +47,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.Film
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmAPI
 import com.example.absolute_cinema_app.domain.FilmsRetrofit.Review
 import com.example.absolute_cinema_app.domain.RegisterRetrfit.AuthApiClient
+import com.example.absolute_cinema_app.domain.RegisterRetrfit.AuthViewModel
 import com.example.absolute_cinema_app.domain.RegisterRetrfit.FavoriteRequest
 import com.example.absolute_cinema_app.domain.RegisterRetrfit.TokenManager
 import kotlinx.coroutines.CoroutineScope
@@ -67,11 +71,13 @@ fun ScreenFilm( kinopoiskId:Int, navController: NavController){//написат�
     val configuration: Configuration = LocalConfiguration.current
     val screenWidth: Dp = configuration.screenWidthDp.dp
     val backgroundColor: Color = MaterialTheme.colorScheme.background
-    val context = LocalContext.current
     val filmState = remember { mutableStateOf<Film?>(null) }
 
     val interceptor = HttpLoggingInterceptor()
     interceptor.level = HttpLoggingInterceptor.Level.BODY
+    val context = LocalContext.current
+    val authViewModel: AuthViewModel = viewModel()
+    val isAuthorized by authViewModel.isAuthorized
 
     val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
 
@@ -154,13 +160,13 @@ fun ScreenFilm( kinopoiskId:Int, navController: NavController){//написат�
                 Column (modifier = Modifier.width(screenWidth/3*2)){
                     Text(text = name,
                         modifier = Modifier.padding(all = 10.dp),
-                        color = Color.White,
+                        color = MaterialTheme.colorScheme.onBackground,
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold
                     )
                     Text(text = "Жанры: "+filmState.value!!.genres.joinToString(separator = ", ") { it.genre },
                         modifier = Modifier.padding(bottom = 8.dp, start = 8.dp),
-                        color = Color.LightGray,
+                        color = MaterialTheme.colorScheme.onBackground,
                         fontSize = 15.sp,)
                 }
                 Box(
@@ -168,10 +174,9 @@ fun ScreenFilm( kinopoiskId:Int, navController: NavController){//написат�
                         .size(54.dp)
                         .clip(CircleShape)
                         .background(Color.DarkGray)
-                        .clickable {
+                        .clickable(enabled = isAuthorized) {
                             CoroutineScope(Dispatchers.IO).launch {
                                 try {
-
                                     val token_ = TokenManager.getToken(context)
                                     val token = "Bearer $token_"
                                     val response = AuthApiClient.authApi.addToFavorites(
@@ -180,30 +185,19 @@ fun ScreenFilm( kinopoiskId:Int, navController: NavController){//написат�
                                     )
                                     withContext(Dispatchers.Main) {
                                         if (response.isSuccessful) {
-                                            Toast.makeText(
-                                                context,
-                                                "Добавлено в избранное",
-                                                Toast.LENGTH_SHORT
-                                            ).show()
+                                            Toast.makeText(context, "Добавлено в избранное", Toast.LENGTH_SHORT).show()
                                         } else {
-                                            Toast.makeText(
-                                                context,
-                                                "Ошибка: ${response.code()}",
-                                                Toast.LENGTH_SHORT
-                                            ).show()
+                                            Toast.makeText(context, "Ошибка: ${response.code()}", Toast.LENGTH_SHORT).show()
                                         }
                                     }
                                 } catch (e: Exception) {
                                     withContext(Dispatchers.Main) {
-                                        Toast.makeText(
-                                            context,
-                                            "Ошибка: ${e.message}",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
+                                        Toast.makeText(context, "Ошибка: ${e.message}", Toast.LENGTH_SHORT).show()
                                     }
                                 }
                             }
-                        },
+                        }
+                        .then(if (!isAuthorized) Modifier.alpha(0.5f) else Modifier),
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
@@ -217,63 +211,63 @@ fun ScreenFilm( kinopoiskId:Int, navController: NavController){//написат�
                         contentDescription = "Favorite Icon",
                         tint = Color.DarkGray,
                         modifier = Modifier.fillMaxSize(0.7f),
-
                     )
                 }
+
 
             }
             if(filmState.value!!.description!=null){
                 Text(text = "Описание",
                     modifier = Modifier.padding(all = 10.dp),
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.onBackground,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold
                 )
                 Text(text = filmState.value!!.description,
                     modifier = Modifier.padding(bottom = 8.dp, start = 8.dp),
-                    color = Color.LightGray,
+                    color = MaterialTheme.colorScheme.onBackground,
                     fontSize = 15.sp,)
             }
             if((filmState.value!!.ratingImdb != 0.0f) and (filmState.value!!.ratingKinopoisk != 0.0f)){
                 Text(text = "Рейтинг",
                     modifier = Modifier.padding(all = 10.dp),
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.onBackground,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold
                 )
                 Text(text = "Imdb: "+filmState.value!!.ratingImdb.toString() + ", Кинопоиск: "+filmState.value!!.ratingKinopoisk,
                     modifier = Modifier.padding(bottom = 8.dp, start = 8.dp),
-                    color = Color.LightGray,
+                    color = MaterialTheme.colorScheme.onBackground,
                     fontSize = 15.sp,)
             }
             else if((filmState.value!!.ratingImdb != 0.0f) and (filmState.value!!.ratingKinopoisk == 0.0f)){
                 Text(text = "Рейтинг",
                     modifier = Modifier.padding(all = 10.dp),
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.onBackground,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold
                 )
                 Text(text = "Imdb: "+filmState.value!!.ratingImdb.toString(),
                     modifier = Modifier.padding(bottom = 8.dp, start = 8.dp),
-                    color = Color.LightGray,
+                    color = MaterialTheme.colorScheme.onBackground,
                     fontSize = 15.sp,)
             }
             else if ((filmState.value!!.ratingImdb == 0.0f) and (filmState.value!!.ratingKinopoisk != 0.0f)){
                 Text(text = "Рейтинг",
                     modifier = Modifier.padding(all = 10.dp),
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.onBackground,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold
                 )
                 Text(text = "Кинопоиск: "+filmState.value!!.ratingKinopoisk.toString(),
                     modifier = Modifier.padding(bottom = 8.dp, start = 8.dp),
-                    color = Color.LightGray,
+                    color = MaterialTheme.colorScheme.onBackground,
                     fontSize = 15.sp,)
             }
             else{
                 Text(text = "Пока нет рейтинга",
                     modifier = Modifier.padding(all = 10.dp),
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.onBackground,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold
                 )

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -25,12 +26,15 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -60,8 +64,8 @@ fun ScreenFavorites(navController: NavController) {
     val backgroundColor: Color = MaterialTheme.colorScheme.background
 
     val favoriteFilms = remember { mutableStateListOf<Film>() }
-
     val isLoading = remember { mutableStateOf(true) }
+    var isAuthorized by remember { mutableStateOf(false) }
 
     val filmApi = remember {
         Retrofit.Builder()
@@ -77,15 +81,18 @@ fun ScreenFavorites(navController: NavController) {
     LaunchedEffect(Unit) {
         try {
             val token = TokenManager.getToken(context)
-            val favoritesResponse = AuthApiClient.authApi.getFavorites("Bearer $token")
-            val ids = favoritesResponse.body()?.favorites ?: emptyList()
-            val films = ids.mapNotNull {
-                try {
-                    filmApi.getFilmById(it.toInt())
-                } catch (_: Exception) { null }
+            isAuthorized = !token.isNullOrBlank()
+            if (isAuthorized) {
+                val favoritesResponse = AuthApiClient.authApi.getFavorites("Bearer $token")
+                val ids = favoritesResponse.body()?.favorites ?: emptyList()
+                val films = ids.mapNotNull {
+                    try {
+                        filmApi.getFilmById(it.toInt())
+                    } catch (_: Exception) { null }
+                }
+                favoriteFilms.clear()
+                favoriteFilms.addAll(films)
             }
-            favoriteFilms.clear()
-            favoriteFilms.addAll(films)
         } catch (e: Exception) {
             Log.e("FavoritesScreen", "Ошибка: ${e.message}")
         } finally {
@@ -95,59 +102,98 @@ fun ScreenFavorites(navController: NavController) {
 
     Scaffold(
         bottomBar = { BottomNavigationBar(navController) },
-        topBar = { TopAppBar(
-            title = { Text(text = "Закладки", fontWeight = FontWeight.Bold) },
-            actions = {
-                IconButton(onClick = {  }) {
-                    Icon(
-                        imageVector = Icons.Default.List,
-                        contentDescription = "фильтры"
-                    )
+        topBar = {
+            TopAppBar(
+                title = { Text(text = "Закладки", fontWeight = FontWeight.Bold) },
+
+            )
+        }
+    ) { paddingValues ->
+        when {
+            isLoading.value -> {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                    contentAlignment = Alignment.Center
+                ) {
+                    CircularProgressIndicator()
                 }
             }
-        ) }
-    ) { paddingValues ->
-        if (isLoading.value) {
-            Box(modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues),
-                contentAlignment = Alignment.Center
-            ) {
-                CircularProgressIndicator()
-            }
-        } else {
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues),
-                verticalArrangement = Arrangement.spacedBy(8.dp),
-                contentPadding = PaddingValues(16.dp)
-            ) {
-                if (favoriteFilms.isEmpty()) {
-                    item {
-                        Box(contentAlignment = Alignment.Center,
-                        modifier = Modifier.padding(paddingValues).fillMaxSize()){
-                        Column (modifier = Modifier.padding(bottom = 100.dp),
-                            horizontalAlignment = Alignment.CenterHorizontally) {
-                            Image(
-                                painter = painterResource(R.drawable.snapedit_png),
-                                contentDescription = "",
-                                modifier = Modifier.width(screenWidth / 2)
-                                    .height(screenWidth / 2)
-                            )
-                            Text(
-                                "Список закладок пока пуст",
-                                textAlign = TextAlign.Center
-                            )
-                        }
-                        }
+
+            !isAuthorized -> {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier.padding(bottom = 100.dp)
+                    ) {
+                        Image(
+                            painter = painterResource(R.drawable.snapedit_png),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .width(screenWidth / 2)
+                                .height(screenWidth / 2)
+                                .graphicsLayer(alpha = 0.4f) // Прозрачность
+                        )
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Text(
+                            "Эта функция доступна только авторизованным пользователям",
+                            textAlign = TextAlign.Center,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = Color.Gray
+                        )
                     }
-                } else {
+                }
+            }
+
+            favoriteFilms.isEmpty() -> {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier.padding(bottom = 100.dp)
+                    ) {
+                        Image(
+                            painter = painterResource(R.drawable.snapedit_png),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .width(screenWidth / 2)
+                                .height(screenWidth / 2)
+                        )
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Text("Список закладок пока пуст", textAlign = TextAlign.Center)
+                    }
+                }
+            }
+
+            else -> {
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                    contentPadding = PaddingValues(16.dp)
+                ) {
                     items(favoriteFilms) { film ->
-                        FavoritesFilmRow(film, screenWidth, navController, onDelete = { filmToRemove -> favoriteFilms.remove(filmToRemove)})
+                        FavoritesFilmRow(
+                            film,
+                            screenWidth,
+                            navController,
+                            onDelete = { favoriteFilms.remove(it) }
+                        )
                     }
                 }
             }
         }
     }
 }
+

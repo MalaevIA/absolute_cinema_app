@@ -4,8 +4,10 @@ import android.webkit.WebSettings.TextSize
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
@@ -164,14 +166,32 @@ fun ScreenMailAuth(navController: NavController) {
                     pop()
                 }
                 Column {
-                    Text(
-                        modifier = Modifier.padding(start = 16.dp, bottom = 8.dp)
-                            .clickable { navController.navigate("RegisterScreen") },
-                        text = "Регистрация",
-                        fontWeight = FontWeight.SemiBold,
-                        color = Color.Yellow,
-                        fontSize = 20.sp,
-                    )
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp, vertical = 8.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            modifier = Modifier
+                                .clickable { navController.navigate("RegisterScreen") },
+                            text = "Регистрация",
+                            fontWeight = FontWeight.SemiBold,
+                            color = Color.Yellow,
+                            fontSize = 20.sp,
+                        )
+                        Text(
+                            modifier = Modifier
+                                .clickable {
+                                    navController.navigate("ScreenMain")
+                                },
+                            text = "Войти без авторизации",
+                            fontWeight = FontWeight.SemiBold,
+                            color = Color.Yellow,
+                            fontSize = 20.sp,
+                        )
+                    }
                     Text(
                         modifier = Modifier.padding(start = 16.dp, bottom = 16.dp),
                         text = annotatedText

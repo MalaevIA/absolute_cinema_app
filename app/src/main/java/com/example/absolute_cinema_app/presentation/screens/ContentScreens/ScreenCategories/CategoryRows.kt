@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -56,7 +57,7 @@ fun FirstCategoryRow(screenWidth: Dp, backgroundColor: Color, navController: Nav
             }
             Text(
                 text = label,
-                color = Color.White,
+                color = MaterialTheme.colorScheme.onBackground,
                 modifier = Modifier
 
                     .padding(top = screenWidth/2 - 30.dp, start = 8.dp),
@@ -94,7 +95,7 @@ fun FirstCategoryRow(screenWidth: Dp, backgroundColor: Color, navController: Nav
                         }
                         Text(
                             text = item.label,
-                            color = Color.White,
+                            color = MaterialTheme.colorScheme.onBackground,
                             modifier = Modifier
                                 .padding(top = screenWidth/4 -30.dp, start = 8.dp).fillMaxHeight(),
                             fontSize = 15.sp
@@ -143,7 +144,7 @@ fun SecondCategoryRow(screenWidth: Dp, backgroundColor: Color, navController: Na
                 }
                 Text(
                     text = item.label,
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.onBackground,
                     modifier = Modifier
                         .width(300.dp)
                         .padding(top = screenWidth / 2 - 48.dp, start = 8.dp),
@@ -192,7 +193,7 @@ fun ThirdCategoryRow(screenWidth: Dp, backgroundColor: Color, navController: Nav
                         }
                         Text(
                             text = item.label,
-                            color = Color.White,
+                            color = MaterialTheme.colorScheme.onBackground,
                             modifier = Modifier.matchParentSize()
                                 .padding(top = screenWidth/4 - 34.dp, start = 8.dp),
                             textAlign = TextAlign.Start,
@@ -229,7 +230,7 @@ fun ThirdCategoryRow(screenWidth: Dp, backgroundColor: Color, navController: Nav
             }
             Text(
                 text = label,
-                color = Color.White,
+                color = MaterialTheme.colorScheme.onBackground,
                 modifier = Modifier
                     .padding(top = screenWidth/2 - 30.dp, start = 8.dp),
                 textAlign = TextAlign.Start,
@@ -276,7 +277,7 @@ fun FourthCategoryRow(screenWidth: Dp, backgroundColor: Color, navController: Na
                 }
                 Text(
                     text = item.label,
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.onBackground,
                     modifier = Modifier
                         .width(300.dp)
                         .padding(top = screenWidth / 2 - 48.dp, start = 8.dp),
@@ -325,7 +326,7 @@ fun FifthCategoryRow(screenWidth: Dp, backgroundColor: Color, navController: Nav
                 }
                 Text(
                     text = item.label,
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.onBackground,
                     modifier = Modifier
                         .width(screenWidth / 3 - 10.dp)
                         .padding(top = screenWidth / 3 - 46.dp, start = 8.dp),

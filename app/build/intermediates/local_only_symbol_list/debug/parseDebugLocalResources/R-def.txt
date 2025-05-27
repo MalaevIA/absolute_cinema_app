@@ -23,8 +23,11 @@ drawable fantastic
 drawable green_mile
 drawable ic_apps
 drawable ic_eye
+drawable ic_launcher
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable logo1
+drawable logo2
 drawable magic_battle
 drawable melodrama
 drawable multfilm2
@@ -37,6 +40,7 @@ drawable thriller
 drawable war2
 drawable war3
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 string app_name
 string auth_mail_description_ru
