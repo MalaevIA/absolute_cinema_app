@@ -1,2 +1,0 @@
-05-27 23:32:10.556 15723 15737 I TestRunner: started: testTokenManager_saveAndGetToken(com.example.absolute_cinema_app.ExampleInstrumentedTest)
-05-27 23:32:10.786 15723 15737 I TestRunner: finished: testTokenManager_saveAndGetToken(com.example.absolute_cinema_app.ExampleInstrumentedTest)

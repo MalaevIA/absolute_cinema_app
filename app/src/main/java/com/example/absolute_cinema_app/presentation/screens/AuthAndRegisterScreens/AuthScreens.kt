@@ -2,6 +2,7 @@ package com.example.absolute_cinema_app.presentation.screens.AuthAndRegisterScre
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -71,20 +73,19 @@ fun ScreenMailAuth(navController: NavController) {
                 title = { Text(text = "Войти") }
             )
         },
-        contentWindowInsets = WindowInsets.ime // Учитываем появление клавиатуры
+        contentWindowInsets = WindowInsets.ime
     ) { innerPadding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .imePadding(), // Добавляем отступ для клавиатуры
+                .imePadding(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Обернем изображение в Box для точного контроля размещения
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 40.dp), // Поднимаем картинку выше
+                    .padding(top = 40.dp),
                 contentAlignment = Alignment.Center
             ) {
                 Image(
@@ -224,14 +225,13 @@ fun ScreenPasswordAuth(email:String,navController: NavController){
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .imePadding(), // Добавляем отступ для клавиатуры
+                .imePadding(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Обернем изображение в Box для точного контроля размещения
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 40.dp), // Поднимаем картинку выше
+                    .padding(top = 40.dp),
                 contentAlignment = Alignment.Center
             ) {
                 Image(

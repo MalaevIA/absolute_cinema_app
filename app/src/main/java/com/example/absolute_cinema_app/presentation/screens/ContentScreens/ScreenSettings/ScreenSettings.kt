@@ -82,7 +82,7 @@ fun ScreenSettings(navController: NavController) {
                     },
                     colors = SwitchDefaults.colors(
                         checkedThumbColor = Color.Yellow,
-                        checkedTrackColor = Color(0xFFFFF59D), // светло-жёлтый
+                        checkedTrackColor = Color(0xFFFFF59D),
                         uncheckedThumbColor = Color.Gray,
                         uncheckedTrackColor = Color.LightGray
                     )
@@ -105,7 +105,7 @@ fun ScreenSettings(navController: NavController) {
                         modifier = Modifier.fillMaxWidth(),
                         colors = ButtonDefaults.buttonColors(
                             containerColor = Color.Yellow,
-                            contentColor = Color.Black // текст кнопки на жёлтом фоне
+                            contentColor = Color.Black
                         )
                     ) {
                         Text("Выйти из аккаунта")

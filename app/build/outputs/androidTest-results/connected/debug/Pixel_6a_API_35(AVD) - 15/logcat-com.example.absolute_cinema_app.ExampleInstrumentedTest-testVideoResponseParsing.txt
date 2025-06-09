@@ -1,2 +1,0 @@
-05-27 23:32:10.808 15723 15737 I TestRunner: started: testVideoResponseParsing(com.example.absolute_cinema_app.ExampleInstrumentedTest)
-05-27 23:32:10.850 15723 15737 I TestRunner: finished: testVideoResponseParsing(com.example.absolute_cinema_app.ExampleInstrumentedTest)

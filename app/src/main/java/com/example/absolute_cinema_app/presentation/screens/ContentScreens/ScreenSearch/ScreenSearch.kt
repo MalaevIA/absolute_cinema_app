@@ -194,12 +194,10 @@ fun ScreenSearch(navController: NavController) {
             // Search Bar
             SearchBar(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 8.dp),
+                    .fillMaxWidth().padding(horizontal = 8.dp),
                 query = searchText,
                 onQueryChange = { searchText = it
-                    debounceSearch(it)
-                                },
+                    debounceSearch(it) },
                 onSearch = {text ->
                     isActive = false
                     focusManager.clearFocus()
@@ -240,15 +238,13 @@ fun ScreenSearch(navController: NavController) {
                             tint = Color.Gray,
                         )
                     }
-                },
-                colors = SearchBarDefaults.colors(
+                }, colors = SearchBarDefaults.colors(
                     containerColor = Color.DarkGray,
                     inputFieldColors = TextFieldDefaults.colors(
                         focusedContainerColor = Color.Transparent,
                         unfocusedContainerColor = Color.Transparent
                     )
-                ),
-                shape = RoundedCornerShape(12.dp)
+                ), shape = RoundedCornerShape(12.dp)
             )
             {//история
 

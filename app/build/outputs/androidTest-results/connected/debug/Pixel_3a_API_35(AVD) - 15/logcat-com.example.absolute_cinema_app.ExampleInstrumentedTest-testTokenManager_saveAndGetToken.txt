@@ -1,0 +1,2 @@
+05-30 22:46:16.668  5658  5671 I TestRunner: started: testTokenManager_saveAndGetToken(com.example.absolute_cinema_app.ExampleInstrumentedTest)
+05-30 22:46:16.975  5658  5671 I TestRunner: finished: testTokenManager_saveAndGetToken(com.example.absolute_cinema_app.ExampleInstrumentedTest)

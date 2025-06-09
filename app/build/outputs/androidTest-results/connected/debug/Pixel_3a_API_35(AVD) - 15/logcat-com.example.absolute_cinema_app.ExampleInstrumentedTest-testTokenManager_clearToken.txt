@@ -1,0 +1,2 @@
+05-30 22:46:17.112  5658  5671 I TestRunner: started: testTokenManager_clearToken(com.example.absolute_cinema_app.ExampleInstrumentedTest)
+05-30 22:46:17.148  5658  5671 I TestRunner: finished: testTokenManager_clearToken(com.example.absolute_cinema_app.ExampleInstrumentedTest)

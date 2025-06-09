@@ -1,0 +1,2 @@
+05-30 22:46:17.000  5658  5671 I TestRunner: started: testVideoResponseParsing(com.example.absolute_cinema_app.ExampleInstrumentedTest)
+05-30 22:46:17.039  5658  5671 I TestRunner: finished: testVideoResponseParsing(com.example.absolute_cinema_app.ExampleInstrumentedTest)

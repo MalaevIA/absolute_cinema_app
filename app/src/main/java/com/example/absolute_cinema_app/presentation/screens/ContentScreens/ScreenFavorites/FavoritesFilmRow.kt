@@ -45,7 +45,7 @@ import kotlinx.coroutines.withContext
 @Composable
 fun FavoritesFilmRow(
     film: Film,
-    screenWidth: Dp,//написать проверку для фильма есть ли он в избранном при открытии карточки
+    screenWidth: Dp,
     navController: NavController,
     onDelete: (Film) -> Unit,
     viewModel: ContinueFilmsViewModel = viewModel(factory = ContinueFilmsViewModel.factory)
@@ -146,5 +146,3 @@ fun FavoritesFilmRow(
 
     }
 }
-
-//first@user.com

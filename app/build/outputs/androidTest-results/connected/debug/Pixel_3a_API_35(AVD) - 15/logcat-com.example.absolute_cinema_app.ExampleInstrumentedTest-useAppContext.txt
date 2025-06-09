@@ -1,0 +1,2 @@
+05-30 22:46:17.153  5658  5671 I TestRunner: started: useAppContext(com.example.absolute_cinema_app.ExampleInstrumentedTest)
+05-30 22:46:17.159  5658  5671 I TestRunner: finished: useAppContext(com.example.absolute_cinema_app.ExampleInstrumentedTest)

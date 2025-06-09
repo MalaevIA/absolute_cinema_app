@@ -1,7 +1,6 @@
 package com.example.absolute_cinema_app.presentation.screens.ContentScreens.Film
 
 import android.content.res.Configuration
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -17,7 +16,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -29,40 +28,27 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import com.example.absolute_cinema_app.domain.FilmsRetrofit.FilmAPI
+import com.example.absolute_cinema_app.domain.FilmsRetrofit.RetrofitFilmInstance
 import com.example.absolute_cinema_app.data.models.filmsModels.FilmForSimilars
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import com.example.absolute_cinema_app.domain.repos.FilmRepository
+import com.example.absolute_cinema_app.domain.viewModels.SimilarFilmsViewModel
+import com.example.absolute_cinema_app.domain.viewModels.SimilarFilmsViewModelFactory
+import androidx.lifecycle.viewmodel.compose.viewModel
+
 
 @Composable
 fun SimilarFilms(id:Int, navController: NavController){
-    val filmState = remember { mutableStateOf<List<FilmForSimilars>>(emptyList()) }
+    val repository = remember { FilmRepository(RetrofitFilmInstance.api) }
+    val factory = remember { SimilarFilmsViewModelFactory(repository) }
+    val viewModel: SimilarFilmsViewModel = viewModel(factory = factory)
 
-    val interceptor = HttpLoggingInterceptor()
-    interceptor.level = HttpLoggingInterceptor.Level.BODY
-
-    val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
-
-    val retrofitInstance = Retrofit.Builder()
-        .baseUrl("https://kinopoiskapiunofficial.tech/")
-        .client(client)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
-    val filmApi = retrofitInstance.create(FilmAPI::class.java)
+    val filmState by viewModel.similarFilms
 
     LaunchedEffect(id) {
-        try {
-            val film = filmApi.getSimilarsFilmsById(id)
-            Log.d("API Response", "Response: $film")
-            filmState.value = film.items
-        } catch (e: Exception) {
-            Log.e("Server", "${e.message}")
-        }
+        viewModel.loadSimilarFilms(id)
     }
-    if (filmState.value.isNotEmpty()) {
+
+    if (filmState.isNotEmpty()) {
         Column {
             Text(
                 text = "Вам понравится",
@@ -72,7 +58,7 @@ fun SimilarFilms(id:Int, navController: NavController){
                 fontWeight = FontWeight.Bold
             )
 
-            filmState.value.chunked(2).forEach { filmChunk ->
+            filmState.chunked(2).forEach { filmChunk ->
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()

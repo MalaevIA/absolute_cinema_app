@@ -1,0 +1,357 @@
+# proto-message: google.testing.platform.proto.api.core.TestSuiteResult
+# 2025-05-30T19:46:20.166638Z:
+test_suite_meta_data {
+  scheduled_test_case_count: 6
+  device {
+    id: "emulator-5554"
+    friendly_name: "primary"
+  }
+}
+test_status: PASSED
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "com.example.absolute_cinema_app"
+    test_method: "testTokenManager_saveAndGetToken"
+    start_time {
+      seconds: 1748634378
+      nanos: 522000000
+    }
+    end_time {
+      seconds: 1748634378
+      nanos: 824000000
+    }
+    device {
+      id: "emulator-5554"
+      friendly_name: "primary"
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/logcat-com.example.absolute_cinema_app.ExampleInstrumentedTest-testTokenManager_saveAndGetToken.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/cpuinfo"
+    }
+  }
+}
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "com.example.absolute_cinema_app"
+    test_method: "testGenresToString"
+    start_time {
+      seconds: 1748634378
+      nanos: 863000000
+    }
+    end_time {
+      seconds: 1748634378
+      nanos: 867000000
+    }
+    device {
+      id: "emulator-5554"
+      friendly_name: "primary"
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/logcat-com.example.absolute_cinema_app.ExampleInstrumentedTest-testGenresToString.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/cpuinfo"
+    }
+  }
+}
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "com.example.absolute_cinema_app"
+    test_method: "testVideoResponseParsing"
+    start_time {
+      seconds: 1748634378
+      nanos: 870000000
+    }
+    end_time {
+      seconds: 1748634378
+      nanos: 872000000
+    }
+    device {
+      id: "emulator-5554"
+      friendly_name: "primary"
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/logcat-com.example.absolute_cinema_app.ExampleInstrumentedTest-testVideoResponseParsing.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/cpuinfo"
+    }
+  }
+}
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "com.example.absolute_cinema_app"
+    test_method: "testThemePreference_saveAndLoad"
+    start_time {
+      seconds: 1748634378
+      nanos: 910000000
+    }
+    end_time {
+      seconds: 1748634378
+      nanos: 941000000
+    }
+    device {
+      id: "emulator-5554"
+      friendly_name: "primary"
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/logcat-com.example.absolute_cinema_app.ExampleInstrumentedTest-testThemePreference_saveAndLoad.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/cpuinfo"
+    }
+  }
+}
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "com.example.absolute_cinema_app"
+    test_method: "testTokenManager_clearToken"
+    start_time {
+      seconds: 1748634378
+      nanos: 946000000
+    }
+    end_time {
+      seconds: 1748634378
+      nanos: 976000000
+    }
+    device {
+      id: "emulator-5554"
+      friendly_name: "primary"
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/logcat-com.example.absolute_cinema_app.ExampleInstrumentedTest-testTokenManager_clearToken.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/cpuinfo"
+    }
+  }
+}
+test_result {
+  test_case {
+    test_class: "ExampleInstrumentedTest"
+    test_package: "com.example.absolute_cinema_app"
+    test_method: "useAppContext"
+    start_time {
+      seconds: 1748634378
+      nanos: 980000000
+    }
+    end_time {
+      seconds: 1748634378
+      nanos: 982000000
+    }
+    device {
+      id: "emulator-5554"
+      friendly_name: "primary"
+    }
+  }
+  test_status: PASSED
+  output_artifact {
+    label {
+      label: "logcat"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/logcat-com.example.absolute_cinema_app.ExampleInstrumentedTest-useAppContext.txt"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/device-info.pb"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.meminfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/meminfo"
+    }
+  }
+  output_artifact {
+    label {
+      label: "device-info.cpuinfo"
+      namespace: "android"
+    }
+    source_path {
+      path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/cpuinfo"
+    }
+  }
+}
+output_artifact {
+  label {
+    label: "test-results.log"
+    namespace: "com.google.testing.platform.runtime.android.driver.AndroidInstrumentationDriver"
+  }
+  source_path {
+    path: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/androidTest-results/connected/debug/Pixel_3a_API_35(AVD) - 15/testlog/test-results.log"
+  }
+  type: TEST_DATA
+  mime_type: "text/plain"
+}

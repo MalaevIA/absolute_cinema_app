@@ -123,12 +123,6 @@ fun ContinueView(navController: NavController
 
 
                             )
-//                    Text(
-//                        item.days_from_the_beginning_of_viewing.toString() + " дн. назад",
-//                        modifier = Modifier.padding(top = 210.dp, start = 215.dp),
-//                        fontSize = 12.sp,
-//                        color = Color.DarkGray
-//                    )
                     }
 
                 }

@@ -1,0 +1,2 @@
+05-30 22:46:17.053  5658  5671 I TestRunner: started: testThemePreference_saveAndLoad(com.example.absolute_cinema_app.ExampleInstrumentedTest)
+05-30 22:46:17.108  5658  5671 I TestRunner: finished: testThemePreference_saveAndLoad(com.example.absolute_cinema_app.ExampleInstrumentedTest)

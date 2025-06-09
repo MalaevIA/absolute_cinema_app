@@ -1,0 +1,48 @@
+INFO: Constructing runner from config.
+INFO: Configuring Android Instrumentation driver: android_instrumentation_runtime {
+  instrumentation_info {
+    app_package: "com.example.absolute_cinema_app"
+    test_package: "com.example.absolute_cinema_app.test"
+    test_runner_class: "androidx.test.runner.AndroidJUnitRunner"
+  }
+  instrumentation_args {
+    args_map {
+      key: "additionalTestOutputDir"
+      value: "/sdcard/Android/media/com.example.absolute_cinema_app/additional_test_output"
+    }
+    args_map {
+      key: "class"
+      value: "com.example.absolute_cinema_app.ExampleInstrumentedTest"
+    }
+  }
+}
+am_instrument_timeout: 31536000
+
+INFO: Configuring AndroidTestApkInstallerPlugin: apks_to_install {
+  apk_paths: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/intermediates/apk/debug/app-debug.apk"
+  install_options {
+  }
+  uninstall_after_test: true
+}
+apks_to_install {
+  apk_paths: "/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/intermediates/apk/androidTest/debug/app-debug-androidTest.apk"
+  install_options {
+  }
+  uninstall_after_test: true
+}
+
+INFO: No installables found in test fixture. Nothing to install.
+INFO: Installing [/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/intermediates/apk/debug/app-debug.apk] on device emulator-5554.
+INFO: Installing [/Users/ilamalaev/Desktop/absolute_cinema_app/app/build/intermediates/apk/androidTest/debug/app-debug-androidTest.apk] on device emulator-5554.
+INFO: Start logcat streaming.
+INFO: Running Android Instrumentation driver.
+INFO: Copying files from device to host: /sdcard/Android/media/com.example.absolute_cinema_app/additional_test_output to /Users/ilamalaev/Desktop/absolute_cinema_app/app/build/outputs/connected_android_test_additional_output/debugAndroidTest/connected/Pixel_3a_API_35(AVD) - 15
+INFO: Stop logcat streaming.
+INFO: Uninstalling com.example.absolute_cinema_app for device emulator-5554.
+INFO: Uninstalling com.example.absolute_cinema_app.test for device emulator-5554.
+INFO: Execute com.example.absolute_cinema_app.ExampleInstrumentedTest.testTokenManager_saveAndGetToken: PASSED
+INFO: Execute com.example.absolute_cinema_app.ExampleInstrumentedTest.testGenresToString: PASSED
+INFO: Execute com.example.absolute_cinema_app.ExampleInstrumentedTest.testVideoResponseParsing: PASSED
+INFO: Execute com.example.absolute_cinema_app.ExampleInstrumentedTest.testThemePreference_saveAndLoad: PASSED
+INFO: Execute com.example.absolute_cinema_app.ExampleInstrumentedTest.testTokenManager_clearToken: PASSED
+INFO: Execute com.example.absolute_cinema_app.ExampleInstrumentedTest.useAppContext: PASSED

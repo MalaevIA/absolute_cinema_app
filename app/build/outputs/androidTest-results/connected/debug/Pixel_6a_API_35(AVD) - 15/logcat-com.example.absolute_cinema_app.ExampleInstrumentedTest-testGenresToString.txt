@@ -1,2 +1,0 @@
-05-27 23:32:10.792 15723 15737 I TestRunner: started: testGenresToString(com.example.absolute_cinema_app.ExampleInstrumentedTest)
-05-27 23:32:10.803 15723 15737 I TestRunner: finished: testGenresToString(com.example.absolute_cinema_app.ExampleInstrumentedTest)
